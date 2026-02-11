@@ -423,8 +423,8 @@ export const tracker = UniversalTracker.getInstance();
 
 declare global {
   interface Window {
-    dataLayer: Record<string, unknown>[];
-    gtag: (...args: unknown[]) => void;
+    dataLayer: any[];
+    gtag: (...args: any[]) => void;
     fbq: (...args: unknown[]) => void;
     _linkedin_data_partner_ids: string[];
     lintrk: (action: string, data: Record<string, unknown>) => void;
