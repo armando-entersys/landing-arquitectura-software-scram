@@ -17,6 +17,7 @@ function HomePage() {
   const { getCTAText, strategy } = useAIFunnel();
 
   return (
+    <>
     <main className="min-h-screen">
       {/* Hero Section - Premium Design */}
       <section className="relative min-h-[85vh] md:min-h-screen flex items-center bg-gradient-to-br from-white via-scram-light to-scram-lightAlt overflow-hidden">
@@ -455,6 +456,7 @@ function HomePage() {
       </footer>
     </main>
     <FloatingWhatsApp />
+    </>
   );
 }
 
