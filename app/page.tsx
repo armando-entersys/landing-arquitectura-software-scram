@@ -63,13 +63,20 @@ function HomePage() {
 
               <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8">
                 <button
-                  onClick={() => tracker.trackCTA(getCTAText(content.hero.ctaPrimary), 'hero', '#contacto')}
+                  onClick={() => {
+                    tracker.trackCTA(getCTAText(content.hero.ctaPrimary), 'hero', '#contacto');
+                    const msg = encodeURIComponent('Hola, me interesa agendar una sesión de arquitectura de software para mi empresa.');
+                    window.open(`https://wa.me/529993882606?text=${msg}`, '_blank');
+                  }}
                   className="px-6 py-3.5 md:px-8 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5"
                 >
                   {getCTAText(content.hero.ctaPrimary)}
                 </button>
                 <button
-                  onClick={() => tracker.trackCTA(content.hero.ctaSecondary, 'hero', '#casos-de-exito')}
+                  onClick={() => {
+                    tracker.trackCTA(content.hero.ctaSecondary, 'hero', '#casos-de-exito');
+                    document.getElementById('casos-de-exito')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="px-6 py-3.5 md:px-8 md:py-4 bg-white hover:bg-scram-light text-scram-primary font-semibold text-base rounded-pill border-2 border-scram-primary transition-all duration-300 hover:-translate-y-0.5"
                 >
                   {content.hero.ctaSecondary}
@@ -105,7 +112,7 @@ function HomePage() {
       <ClientLogos />
 
       {/* Problem Section - Visual Cards */}
-      <section className="py-12 md:py-32 bg-white">
+      <section id="problema" className="py-12 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-8 md:mb-16">
             <h2 className="font-heading text-3xl md:text-5xl font-bold italic text-scram-dark mb-3 md:mb-6">
@@ -158,7 +165,7 @@ function HomePage() {
       <CaseStudies />
 
       {/* How it Works - Timeline Visual */}
-      <section className="py-12 md:py-32 bg-scram-light">
+      <section id="metodologia" className="py-12 md:py-32 bg-scram-light">
         <div className="max-w-6xl mx-auto px-5 md:px-12">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="font-heading text-3xl md:text-5xl font-bold italic text-scram-dark mb-3 md:mb-6">
@@ -204,7 +211,7 @@ function HomePage() {
       </section>
 
       {/* Benefits Grid - Icons + Metrics */}
-      <section className="py-12 md:py-32 bg-white">
+      <section id="beneficios" className="py-12 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-12">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="font-heading text-3xl md:text-5xl font-bold italic text-scram-dark mb-3 md:mb-6">
@@ -243,7 +250,7 @@ function HomePage() {
       <Comparison />
 
       {/* Testimonials - With Images */}
-      <section className="py-12 md:py-32 bg-scram-dark">
+      <section id="casos-de-exito" className="py-12 md:py-32 bg-scram-dark">
         <div className="max-w-7xl mx-auto px-5 md:px-12">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="font-heading text-3xl md:text-5xl font-bold italic text-white mb-3 md:mb-6">
@@ -295,7 +302,7 @@ function HomePage() {
       <Team />
 
       {/* Pricing - Value-focused (No prices shown) */}
-      <section className="py-12 md:py-32 bg-white">
+      <section id="servicios" className="py-12 md:py-32 bg-white">
         <div className="max-w-6xl mx-auto px-5 md:px-12">
           <div className="text-center mb-8 md:mb-16">
             <h2 className="font-heading text-3xl md:text-5xl font-bold italic text-scram-dark mb-3 md:mb-6">
@@ -355,7 +362,14 @@ function HomePage() {
             <p className="font-body text-base md:text-lg text-scram-paragraph mb-4 md:mb-6">
               {content.pricing.cta.subtitle}
             </p>
-            <button className="w-full md:w-auto px-8 py-3.5 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base md:text-lg rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5 hover:shadow-button-green">
+            <button
+              onClick={() => {
+                tracker.trackCTA(content.pricing.cta.buttonText, 'pricing', 'whatsapp');
+                const msg = encodeURIComponent('Hola, me interesa solicitar un diagnóstico técnico para mi empresa.');
+                window.open(`https://wa.me/529993882606?text=${msg}`, '_blank');
+              }}
+              className="w-full md:w-auto px-8 py-3.5 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base md:text-lg rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5 hover:shadow-button-green"
+            >
               {content.pricing.cta.buttonText}
             </button>
           </div>
@@ -363,7 +377,7 @@ function HomePage() {
       </section>
 
       {/* FAQ - Accordion */}
-      <section className="py-12 md:py-32 bg-scram-light">
+      <section id="faq" className="py-12 md:py-32 bg-scram-light">
         <div className="max-w-4xl mx-auto px-5 md:px-12">
           <h2 className="font-heading text-3xl md:text-5xl font-bold italic text-scram-dark text-center mb-8 md:mb-16">
             {content.faq.title}
@@ -400,7 +414,7 @@ function HomePage() {
       </section>
 
       {/* Final CTA - Strong */}
-      <section className="py-16 md:py-32 bg-gradient-to-br from-scram-primary via-scram-primary to-scram-secondary relative overflow-hidden">
+      <section id="contacto" className="py-16 md:py-32 bg-gradient-to-br from-scram-primary via-scram-primary to-scram-secondary relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-10 w-64 h-64 bg-white rounded-full blur-3xl" />
@@ -416,7 +430,14 @@ function HomePage() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4 md:mb-6">
-            <button className="w-full sm:w-auto px-8 py-3.5 md:py-4 bg-white text-scram-primary hover:bg-white/90 font-semibold text-base rounded-pill shadow-lg transition-all duration-300 hover:-translate-y-0.5">
+            <button
+              onClick={() => {
+                tracker.trackCTA(content.cta.button, 'final-cta', 'whatsapp');
+                const msg = encodeURIComponent('Hola, me interesa agendar una sesión de arquitectura de software para mi empresa.');
+                window.open(`https://wa.me/529993882606?text=${msg}`, '_blank');
+              }}
+              className="w-full sm:w-auto px-8 py-3.5 md:py-4 bg-white text-scram-primary hover:bg-white/90 font-semibold text-base rounded-pill shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+            >
               {content.cta.button}
             </button>
           </div>
