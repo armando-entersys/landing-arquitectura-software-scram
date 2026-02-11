@@ -4,18 +4,59 @@ import { content } from '@/content/copy';
 
 export function CaseStudies() {
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-br from-scram-light via-white to-scram-lightAlt">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="text-center mb-16">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold italic text-scram-dark mb-6">
+    <section className="py-12 md:py-32 bg-gradient-to-br from-scram-light via-white to-scram-lightAlt">
+      <div className="max-w-7xl mx-auto px-5 md:px-12">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="font-heading text-3xl md:text-5xl font-bold italic text-scram-dark mb-3 md:mb-6">
             {content.caseStudies.title}
           </h2>
-          <p className="font-body text-xl text-scram-paragraph">
+          <p className="font-body text-base md:text-xl text-scram-paragraph">
             {content.caseStudies.subtitle}
           </p>
         </div>
 
-        <div className="space-y-16">
+        {/* Mobile: horizontal scroll cards. Desktop: stacked full cards */}
+        <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5">
+          {content.caseStudies.cases.map((caseStudy, idx) => (
+            <div
+              key={idx}
+              className="min-w-[300px] snap-center bg-white rounded-card shadow-card border border-scram-border p-5 flex-shrink-0"
+            >
+              <span className="inline-block px-2 py-0.5 bg-scram-primary/10 text-scram-primary rounded-pill text-xs font-semibold mb-2">
+                {caseStudy.industry}
+              </span>
+              <h3 className="font-heading text-xl font-bold text-scram-dark mb-2">
+                {caseStudy.title}
+              </h3>
+              <p className="font-body text-sm text-scram-paragraph mb-4">
+                {caseStudy.solution}
+              </p>
+
+              {/* Results - compact */}
+              <div className="grid grid-cols-3 gap-2 p-3 bg-scram-secondary/5 rounded-lg border border-scram-secondary/20 mb-3">
+                {caseStudy.results.map((result, ridx) => (
+                  <div key={ridx} className="text-center">
+                    <div className="font-heading text-xl font-bold text-scram-secondary">
+                      {result.metric}
+                    </div>
+                    <div className="font-body text-[10px] text-scram-paragraph leading-tight">
+                      {result.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <blockquote className="border-l-3 border-scram-primary pl-3">
+                <p className="font-body text-xs text-scram-dark italic">
+                  &ldquo;{caseStudy.testimonial}&rdquo;
+                </p>
+              </blockquote>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: full layout */}
+        <div className="hidden md:block space-y-16">
           {content.caseStudies.cases.map((caseStudy, idx) => (
             <div
               key={idx}
@@ -76,7 +117,7 @@ export function CaseStudies() {
                 {/* Testimonial */}
                 <blockquote className="border-l-4 border-scram-primary pl-4 italic">
                   <p className="font-body text-base text-scram-dark">
-                    "{caseStudy.testimonial}"
+                    &ldquo;{caseStudy.testimonial}&rdquo;
                   </p>
                 </blockquote>
               </div>

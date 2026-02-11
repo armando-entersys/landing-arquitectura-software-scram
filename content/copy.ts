@@ -12,7 +12,7 @@ export const content = {
     stats: [
       { value: '40%', label: 'Menos costo' },
       { value: '3x', label: 'Más rápido' },
-      { value: '15 min', label: 'Primera respuesta' },
+      { value: '15m', label: 'Primera respuesta' },
     ],
   },
 
@@ -224,10 +224,10 @@ export const content = {
       { value: '100%', label: 'Clientes satisfechos' },
     ],
     contact: {
-      name: 'Ing. Carlos Ramírez',
+      name: 'Ing. Armando Cortés',
       role: 'Director de Proyectos',
       description: '15 años desarrollando sistemas empresariales. Tu contacto directo durante todo el proyecto.',
-      image: '/images/team/carlos.jpg',
+      image: '/images/team/armando.jpg',
     },
   },
 
