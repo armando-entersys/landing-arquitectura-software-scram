@@ -1,14 +1,14 @@
 export const content = {
   hero: {
-    eyebrow: 'Ingeniería de Software Corporativo',
+    eyebrow: 'Ingeniería de Software Corporativo | Alcance Nacional',
     title: 'Tus sistemas listos',
     titleHighlight: 'en semanas',
     titleContinued: 'no en meses',
     subtitle:
-      'Arquitectura Centauro: IA + Ingenieros Senior desplegando software empresarial con transparencia total y presupuesto cerrado. Vea resultados antes de invertir.',
+      'Arquitectura Centauro: IA + Ingenieros Senior desplegando software empresarial para manufactura, logística y distribución en todo México. Presupuesto cerrado. Transparencia total.',
     ctaPrimary: 'Solicitar sesión de arquitectura',
     ctaSecondary: 'Ver casos de éxito',
-    helperText: 'Sesión de diagnóstico sin compromiso • Respuesta en 24h',
+    helperText: 'Diagnóstico sin compromiso • Respuesta en 24h • Cobertura nacional',
     stats: [
       { value: '40%', label: 'Menos costo' },
       { value: '3x', label: 'Más rápido' },
@@ -115,15 +115,15 @@ export const content = {
   },
 
   clientLogos: {
-    title: 'Sectores que transformamos',
-    subtitle: 'Experiencia directa en manufactura, logística y distribución en México',
+    title: 'Cobertura nacional, foco industrial',
+    subtitle: 'Operamos remoto con capacidad de despliegue en los principales corredores industriales de México',
     categories: [
-      'Grupos Manufactureros',
-      'Empresas de Logística',
-      'Comercializadoras',
-      'Distribuidoras',
-      'Industria Automotriz',
-      'Empresas de Construcción',
+      'Bajío & Querétaro',
+      'Monterrey & NL',
+      'CDMX & Edo. Méx',
+      'Puebla & Tlaxcala',
+      'Guadalajara & Jalisco',
+      'Saltillo & Chihuahua',
     ],
   },
 
@@ -315,7 +315,7 @@ export const content = {
       {
         question: '¿Trabajan presencial o remoto?',
         answer:
-          'Operamos remoto desde nuestro Command Center en Puebla con infraestructura de grado empresarial. Si hay hardware o instalaciones físicas, nos desplazamos a donde sea necesario en México.',
+          'Operamos 100% remoto con arquitectos e ingenieros senior distribuidos en diferentes estados de México. Nuestra infraestructura es de grado empresarial y colaboramos en tiempo real. Si el proyecto requiere presencia física, nos desplazamos a donde sea necesario.',
       },
       {
         question: '¿Cómo garantizan que no van a desaparecer a mitad del proyecto?',
