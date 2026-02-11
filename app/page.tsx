@@ -14,7 +14,7 @@ import { useAIFunnel } from '@/lib/personalization/useAIFunnel';
 import { tracker } from '@/lib/tracking/universal-tracker';
 
 function HomePage() {
-  const { getCTAText, strategy } = useAIFunnel();
+  const { getCTAText } = useAIFunnel();
 
   return (
     <>
