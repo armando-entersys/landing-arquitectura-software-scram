@@ -1,0 +1,50 @@
+{
+  "name": "landing-centauro",
+  "version": "1.0.0",
+  "description": "Landing page de clase mundial para Arquitectura de Software Centauro - Scram Consulting",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "landing-page",
+    "arquitectura-software",
+    "scram",
+    "centauro"
+  ],
+  "author": "Scram Consulting",
+  "license": "PROPRIETARY",
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
+    "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.563.0",
+    "next": "^16.1.6",
+    "postcss": "^8.4.49",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss": "^3.4.17",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^9",
+    "eslint-config-next": "^16.1.6",
+    "typescript": "^5.6.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}

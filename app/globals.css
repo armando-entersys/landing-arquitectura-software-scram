@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-asap: 'ASAP', sans-serif;
+    --font-cabin: 'Cabin', system-ui, -apple-system, sans-serif;
+  }
+
+  * {
+    @apply border-scram-border/10;
+  }
+
+  body {
+    @apply bg-white text-scram-dark antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-scram-light;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-scram-paragraph rounded-pill;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-scram-navlink;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-scram-primary to-scram-secondary;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg;
+  }
+}

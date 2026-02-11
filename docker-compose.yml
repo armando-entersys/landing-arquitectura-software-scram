@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  landing-arquitectura-software-scram:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scram-landing-arquitectura-software-scram
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_GTM_ID=${NEXT_PUBLIC_GTM_ID:-}
+      - NEXT_PUBLIC_GOOGLE_ADS_ID=${NEXT_PUBLIC_GOOGLE_ADS_ID:-}
+      - NEXT_PUBLIC_META_PIXEL_ID=${NEXT_PUBLIC_META_PIXEL_ID:-}
+      - NEXT_PUBLIC_SITE_URL=https://arquitectura-software.scram2k.com
+      - NEXT_PUBLIC_WHATSAPP_NUMBER=${NEXT_PUBLIC_WHATSAPP_NUMBER:-}
+      - MAUTIC_BASE_URL=${MAUTIC_BASE_URL:-}
+      - MAUTIC_API_TOKEN=${MAUTIC_API_TOKEN:-}
+      - SENDGRID_API_KEY=${SENDGRID_API_KEY:-}
+    networks:
+      - traefik-public
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          memory: 256M
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.landing-arquitectura-software-scram.rule=Host(`arquitectura-software.scram2k.com`)"
+      - "traefik.http.routers.landing-arquitectura-software-scram.entrypoints=websecure"
+      - "traefik.http.routers.landing-arquitectura-software-scram.tls.certresolver=letsencrypt"
+      - "traefik.http.services.landing-arquitectura-software-scram.loadbalancer.server.port=3000"
+      # Security headers
+      - "traefik.http.middlewares.landing-arquitectura-software-scram-security.headers.frameDeny=true"
+      - "traefik.http.middlewares.landing-arquitectura-software-scram-security.headers.contentTypeNosniff=true"
+      - "traefik.http.middlewares.landing-arquitectura-software-scram-security.headers.browserXssFilter=true"
+      - "traefik.http.middlewares.landing-arquitectura-software-scram-security.headers.stsSeconds=31536000"
+      - "traefik.http.routers.landing-arquitectura-software-scram.middlewares=landing-arquitectura-software-scram-security"
+
+networks:
+  traefik-public:
+    external: true
