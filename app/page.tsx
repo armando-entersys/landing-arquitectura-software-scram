@@ -66,7 +66,7 @@ function HomePage() {
                   onClick={() => {
                     tracker.trackCTA(getCTAText(content.hero.ctaPrimary), 'hero', '#contacto');
                     const msg = encodeURIComponent('Hola, me interesa agendar una sesión de arquitectura de software para mi empresa.');
-                    window.open(`https://wa.me/529993882606?text=${msg}`, '_blank');
+                    window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
                   }}
                   className="px-6 py-3.5 md:px-8 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5"
                 >
@@ -366,7 +366,7 @@ function HomePage() {
               onClick={() => {
                 tracker.trackCTA(content.pricing.cta.buttonText, 'pricing', 'whatsapp');
                 const msg = encodeURIComponent('Hola, me interesa solicitar un diagnóstico técnico para mi empresa.');
-                window.open(`https://wa.me/529993882606?text=${msg}`, '_blank');
+                window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
               }}
               className="w-full md:w-auto px-8 py-3.5 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base md:text-lg rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5 hover:shadow-button-green"
             >
@@ -434,7 +434,7 @@ function HomePage() {
               onClick={() => {
                 tracker.trackCTA(content.cta.button, 'final-cta', 'whatsapp');
                 const msg = encodeURIComponent('Hola, me interesa agendar una sesión de arquitectura de software para mi empresa.');
-                window.open(`https://wa.me/529993882606?text=${msg}`, '_blank');
+                window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
               }}
               className="w-full sm:w-auto px-8 py-3.5 md:py-4 bg-white text-scram-primary hover:bg-white/90 font-semibold text-base rounded-pill shadow-lg transition-all duration-300 hover:-translate-y-0.5"
             >

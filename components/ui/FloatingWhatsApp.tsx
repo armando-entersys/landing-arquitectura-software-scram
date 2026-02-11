@@ -28,7 +28,7 @@ export default function FloatingWhatsApp() {
     const message = encodeURIComponent(
       'Hola, me interesa conocer más sobre la Arquitectura de Software Centauro para mi empresa.'
     );
-    window.open(`https://wa.me/529993882606?text=${message}`, '_blank');
+    window.open(`https://wa.me/522211065056?text=${message}`, '_blank');
     setShowBadge(false);
   };
 
