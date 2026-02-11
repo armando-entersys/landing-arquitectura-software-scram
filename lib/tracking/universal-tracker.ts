@@ -66,7 +66,7 @@ function getConfig(): TrackingConfig {
 // GOOGLE TAG MANAGER
 // ============================================================
 
-function pushToDataLayer(event: TrackingEvent & Record<string, unknown>) {
+function pushToDataLayer(event: Record<string, unknown>) {
   if (typeof window === 'undefined') return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
@@ -127,7 +127,11 @@ export function initLinkedIn(partnerId: string) {
   script.async = true;
   script.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
   const first = document.getElementsByTagName('script')[0];
-  first.parentNode?.insertBefore(script, first);
+  if (first?.parentNode) {
+    first.parentNode.insertBefore(script, first);
+  } else {
+    document.head.appendChild(script);
+  }
 }
 
 function trackLinkedInConversion(conversionId?: string) {
