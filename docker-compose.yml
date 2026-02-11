@@ -7,16 +7,12 @@ services:
       dockerfile: Dockerfile
     container_name: scram-landing-arquitectura-software-scram
     restart: unless-stopped
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_GTM_ID=${NEXT_PUBLIC_GTM_ID:-}
-      - NEXT_PUBLIC_GOOGLE_ADS_ID=${NEXT_PUBLIC_GOOGLE_ADS_ID:-}
-      - NEXT_PUBLIC_META_PIXEL_ID=${NEXT_PUBLIC_META_PIXEL_ID:-}
-      - NEXT_PUBLIC_SITE_URL=https://arquitectura-software.scram2k.com
-      - NEXT_PUBLIC_WHATSAPP_NUMBER=${NEXT_PUBLIC_WHATSAPP_NUMBER:-}
-      - MAUTIC_BASE_URL=${MAUTIC_BASE_URL:-}
-      - MAUTIC_API_TOKEN=${MAUTIC_API_TOKEN:-}
-      - SENDGRID_API_KEY=${SENDGRID_API_KEY:-}
+    volumes:
+      - analytics-data:/app/.analytics
     networks:
       - traefik-public
     deploy:
@@ -38,6 +34,9 @@ services:
       - "traefik.http.middlewares.landing-arquitectura-software-scram-security.headers.browserXssFilter=true"
       - "traefik.http.middlewares.landing-arquitectura-software-scram-security.headers.stsSeconds=31536000"
       - "traefik.http.routers.landing-arquitectura-software-scram.middlewares=landing-arquitectura-software-scram-security"
+
+volumes:
+  analytics-data:
 
 networks:
   traefik-public:
