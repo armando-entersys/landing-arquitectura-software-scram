@@ -80,10 +80,10 @@ export function Comparison() {
         {/* CTA */}
         <div className="mt-8 md:mt-12 text-center">
           <button className="w-full md:w-auto px-8 py-3.5 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base md:text-lg rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5">
-            Probar sin riesgo
+            Solicitar diagnóstico técnico
           </button>
           <p className="font-body text-xs md:text-sm text-white/60 mt-3 md:mt-4">
-            Primera fase gratis
+            Presupuesto cerrado en 48 horas
           </p>
         </div>
       </div>
