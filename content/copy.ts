@@ -132,18 +132,18 @@ export const content = {
     subtitle: 'Proyectos reales entregados con presupuesto cerrado y en tiempo',
     cases: [
       {
-        title: 'Gestión de Briefs y Materiales',
-        company: 'Natura & Avon',
-        industry: 'Corporativo Multinacional',
-        challenge: 'Coordinación caótica entre equipos de marketing y producción creativa. Briefs perdidos en cadenas de email, entregas sin fecha clara y cero visibilidad del estado de cada material.',
-        solution: 'Plataforma web con flujo de aprobación por roles, tablero Kanban por estatus, calendario de entregas, alertas automáticas con SignalR en tiempo real, reportes Hoshin Kanri y exportación a Excel.',
+        title: 'ERP de Órdenes y Facturación',
+        company: 'Baja Aqua Farms',
+        industry: 'Acuacultura / Exportación',
+        challenge: 'Proceso de órdenes fragmentado entre sistemas legacy, Oracle Cloud y SalesForce. Facturación manual con CFDI, reservas de inventario por pieza sin automatizar y cero trazabilidad del ciclo orden-a-cobro.',
+        solution: 'Gateway API (.NET 8) que orquesta el flujo completo: selección de inventario por pieza → creación de orden en Oracle OIC → reserva automática → AutoInvoice → timbrado CFDI con PAC. 4 jobs en background con reintentos, locks y auditoría completa.',
         results: [
-          { metric: '↓ 90%', label: 'Briefs perdidos' },
-          { metric: '3 roles', label: 'Admin, Solicitante, Producción' },
-          { metric: '13+', label: 'Alertas automatizadas' },
+          { metric: '4 jobs', label: 'Pipeline automático 24/7' },
+          { metric: '16 DBs', label: 'Integradas en un gateway' },
+          { metric: 'CFDI', label: 'Timbrado automatizado' },
         ],
-        image: '/images/cases/natura-dashboard.jpg',
-        testimonial: 'Pasamos de perder briefs en el correo a tener visibilidad total de cada material en tiempo real.',
+        image: '/images/cases/aquafarms-erp.jpg',
+        testimonial: 'De orden a factura timbrada en minutos, no en días. El pipeline corre solo y cada paso queda auditado.',
       },
       {
         title: 'Onboarding y Certificación Industrial',
