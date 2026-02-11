@@ -115,8 +115,8 @@ export const content = {
   },
 
   clientLogos: {
-    title: 'Cobertura nacional, foco industrial',
-    subtitle: 'Operamos remoto con capacidad de despliegue en los principales corredores industriales de México',
+    title: 'Empresas que confían en nosotros',
+    subtitle: 'Trabajamos con líderes de manufactura, logística y comercio en México',
     categories: [
       'Bajío & Querétaro',
       'Monterrey & NL',
