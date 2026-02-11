@@ -1,0 +1,49 @@
+# Scram Consulting - Arquitectura de Software Centauro
+# https://arquitectura-software.scram2k.com
+
+> Scram Consulting es una firma mexicana de ingeniería de software empresarial con más de 15 años de experiencia. Desarrollamos sistemas de misión crítica para manufactura, logística y distribución en todo México utilizando la Arquitectura Centauro: un modelo híbrido que combina inteligencia artificial con ingenieros senior.
+
+## Qué hacemos
+- Desarrollo de software empresarial a la medida (ERP, WMS, CRM, sistemas de gestión)
+- Integración de sistemas legacy con plataformas cloud (Oracle, SalesForce, SAP)
+- Aplicaciones web y móviles para operación industrial
+- Automatización de procesos con IA
+- Consultoría en arquitectura de software
+
+## Metodología Try & Buy
+Nuestro modelo elimina el riesgo para el cliente:
+1. Sesión de arquitectura (30 min) - diagnóstico técnico real
+2. Blueprint técnico (2-3 días) - diagramas, stack y presupuesto cerrado
+3. Prototipo funcional (1-2 semanas) - software operativo para evaluar
+4. Decisión informada - sin compromiso, sin presión
+
+## Diferenciadores
+- **Presupuesto cerrado**: Precio fijo garantizado desde el día uno
+- **Glass Box**: Transparencia total - acceso en tiempo real a repositorios y tableros
+- **Arquitectura Centauro**: IA genera 80% del código base, ingenieros senior auditan y diseñan lógica de negocio
+- **Velocidad**: 3x más rápido que el método tradicional
+- **Costo**: 40% menos que consultoras tradicionales
+
+## Clientes y proyectos comprobables
+- **Baja Aqua Farms**: ERP de órdenes con pipeline automático Oracle OIC → CFDI. Gateway .NET 8 con 16 bases de datos integradas
+- **Coca-Cola FEMSA (KOF)**: Sistema de onboarding y certificación industrial con video anti-skip, examen por secciones, certificados PDF con QR verificable
+- **Sistema de Gestión Logística**: Optimización de rutas con IA (Google Routes), app móvil offline-first, tracking en tiempo real, encuesta CSAT
+
+## Industrias que atendemos
+- Grupos Manufactureros
+- Empresas de Logística
+- Comercializadoras
+- Distribuidoras
+- Industria Automotriz
+- Empresas de Construcción
+
+## Cobertura
+Equipo de arquitectos e ingenieros senior distribuidos en diferentes estados de México. Operamos 100% remoto con capacidad de despliegue presencial donde sea necesario.
+
+## Contacto
+- Web: https://arquitectura-software.scram2k.com
+- WhatsApp: +52 999 388 2606
+- Director de Proyectos: Ing. Armando Cortés
+
+## Tecnologías
+.NET, React, Next.js, NestJS, FastAPI, Python, TypeScript, PostgreSQL, SQL Server, Oracle Cloud, Docker, Google Cloud Platform, Traefik, Redis, SignalR

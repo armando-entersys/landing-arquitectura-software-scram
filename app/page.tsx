@@ -9,10 +9,14 @@ import { ClientLogos } from '@/components/sections/ClientLogos';
 import { CaseStudies } from '@/components/sections/CaseStudies';
 import { Comparison } from '@/components/sections/Comparison';
 import { Team } from '@/components/sections/Team';
+import { TrackingProvider } from '@/components/providers/TrackingProvider';
+import { useAIFunnel } from '@/lib/personalization/useAIFunnel';
+import { tracker } from '@/lib/tracking/universal-tracker';
 
-export default function HomePage() {
+function HomePage() {
+  const { getCTAText, strategy } = useAIFunnel();
+
   return (
-    <>
     <main className="min-h-screen">
       {/* Hero Section - Premium Design */}
       <section className="relative min-h-[85vh] md:min-h-screen flex items-center bg-gradient-to-br from-white via-scram-light to-scram-lightAlt overflow-hidden">
@@ -57,10 +61,16 @@ export default function HomePage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8">
-                <button className="px-6 py-3.5 md:px-8 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5">
-                  {content.hero.ctaPrimary}
+                <button
+                  onClick={() => tracker.trackCTA(getCTAText(content.hero.ctaPrimary), 'hero', '#contacto')}
+                  className="px-6 py-3.5 md:px-8 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5"
+                >
+                  {getCTAText(content.hero.ctaPrimary)}
                 </button>
-                <button className="px-6 py-3.5 md:px-8 md:py-4 bg-white hover:bg-scram-light text-scram-primary font-semibold text-base rounded-pill border-2 border-scram-primary transition-all duration-300 hover:-translate-y-0.5">
+                <button
+                  onClick={() => tracker.trackCTA(content.hero.ctaSecondary, 'hero', '#casos-de-exito')}
+                  className="px-6 py-3.5 md:px-8 md:py-4 bg-white hover:bg-scram-light text-scram-primary font-semibold text-base rounded-pill border-2 border-scram-primary transition-all duration-300 hover:-translate-y-0.5"
+                >
                   {content.hero.ctaSecondary}
                 </button>
               </div>
@@ -445,6 +455,13 @@ export default function HomePage() {
       </footer>
     </main>
     <FloatingWhatsApp />
-    </>
+  );
+}
+
+export default function HomePageWithProviders() {
+  return (
+    <TrackingProvider>
+      <HomePage />
+    </TrackingProvider>
   );
 }
