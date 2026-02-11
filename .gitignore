@@ -53,6 +53,9 @@ Thumbs.db
 *.swo
 *~
 
+# Analytics data (local storage for Gemini analysis)
+.analytics/
+
 # Docker
 .dockerignore
 *.tar.gz

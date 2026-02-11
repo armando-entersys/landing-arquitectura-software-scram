@@ -2,7 +2,7 @@
  * Universal Tracking Layer - Scram Consulting
  * Arquitectura: Single entry point → Multiple platform dispatch
  *
- * Flujo: Evento → UniversalTracker → [GTM, Meta Pixel, LinkedIn, Google Ads, Mautic CRM]
+ * Flujo: Evento → UniversalTracker → [GTM, Meta Pixel, LinkedIn, Google Ads, Mautic CRM, Clarity]
  *
  * Configuración: Todos los IDs se cargan desde variables de entorno.
  * Solo se disparan los pixels que tengan ID configurado.
@@ -19,6 +19,7 @@ export interface TrackingConfig {
   linkedinPartnerId?: string;
   mauticBaseUrl?: string;
   mauticFormId?: string;
+  clarityId?: string;
 }
 
 export interface TrackingEvent {
@@ -59,6 +60,7 @@ function getConfig(): TrackingConfig {
     linkedinPartnerId: process.env.NEXT_PUBLIC_LINKEDIN_PARTNER_ID || undefined,
     mauticBaseUrl: process.env.NEXT_PUBLIC_MAUTIC_BASE_URL || undefined,
     mauticFormId: process.env.NEXT_PUBLIC_MAUTIC_FORM_ID || undefined,
+    clarityId: process.env.NEXT_PUBLIC_CLARITY_ID || undefined,
   };
 }
 
@@ -202,6 +204,33 @@ async function sendLeadToMautic(lead: LeadData) {
 }
 
 // ============================================================
+// MICROSOFT CLARITY - Session Recording & Heatmaps
+// ============================================================
+
+export function initClarity(clarityId: string) {
+  if (typeof window === 'undefined' || !clarityId) return;
+  /* eslint-disable */
+  (function(c: any, l: any, a: any, r: any, i: any, t?: any, y?: any) {
+    c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+    y = l.getElementsByTagName(r)[0];
+    if (y?.parentNode) { y.parentNode.insertBefore(t, y); }
+    else { l.head.appendChild(t); }
+  })(window, document, 'clarity', 'script', clarityId);
+  /* eslint-enable */
+}
+
+function tagClarity(key: string, value: string) {
+  if (typeof window === 'undefined' || !window.clarity) return;
+  window.clarity('set', key, value);
+}
+
+function identifyClarity(userId: string, properties?: Record<string, string>) {
+  if (typeof window === 'undefined' || !window.clarity) return;
+  window.clarity('identify', userId, properties);
+}
+
+// ============================================================
 // UNIVERSAL TRACKER - ENTRY POINT
 // ============================================================
 
@@ -209,6 +238,7 @@ export class UniversalTracker {
   private static instance: UniversalTracker;
   private initialized = false;
   private config: TrackingConfig = {};
+  private sessionId: string = '';
 
   static getInstance(): UniversalTracker {
     if (!UniversalTracker.instance) {
@@ -229,6 +259,11 @@ export class UniversalTracker {
     if (this.config.metaPixelId) initMetaPixel(this.config.metaPixelId);
     if (this.config.linkedinPartnerId) initLinkedIn(this.config.linkedinPartnerId);
     if (this.config.mauticBaseUrl) initMautic(this.config.mauticBaseUrl);
+    if (this.config.clarityId) initClarity(this.config.clarityId);
+
+    // Generar session ID para agrupar eventos
+    this.sessionId = sessionStorage.getItem('scram_session_id') || crypto.randomUUID();
+    sessionStorage.setItem('scram_session_id', this.sessionId);
 
     this.initialized = true;
   }
@@ -237,6 +272,9 @@ export class UniversalTracker {
    * Trackea un evento genérico en TODAS las plataformas configuradas
    */
   track(event: TrackingEvent) {
+    // 0. Almacenar en backend para análisis con Gemini
+    this.sendToBackend(event);
+
     // 1. GTM (siempre - es el orquestador principal)
     pushToDataLayer({
       event: event.event,
@@ -362,7 +400,17 @@ export class UniversalTracker {
     // 4. LinkedIn conversion
     trackLinkedInConversion(process.env.NEXT_PUBLIC_LINKEDIN_FORM_CONVERSION);
 
-    // 5. Mautic CRM - enviar lead completo
+    // 5. Clarity - identificar usuario y tagear sesión
+    if (lead.email) {
+      identifyClarity(lead.email, {
+        company: lead.company || '',
+        industry: lead.industry || '',
+      });
+    }
+    tagClarity('form_submitted', formName);
+    tagClarity('lead_quality', lead.budget === 'enterprise' ? 'high' : 'standard');
+
+    // 6. Mautic CRM - enviar lead completo
     await sendLeadToMautic(lead);
   }
 
@@ -397,6 +445,32 @@ export class UniversalTracker {
       industry: profile.industry,
       persona: profile.persona,
     });
+
+    // Clarity - custom tags para filtrar sesiones
+    tagClarity('intent', profile.intent);
+    tagClarity('industry', profile.industry);
+    tagClarity('persona', profile.persona);
+    tagClarity('budget', profile.budget);
+    tagClarity('utm_source', profile.source);
+    tagClarity('utm_campaign', profile.campaign);
+  }
+
+  /**
+   * Envía evento al backend para almacenamiento y análisis con Gemini
+   */
+  private sendToBackend(event: TrackingEvent) {
+    if (typeof window === 'undefined') return;
+    try {
+      const payload = {
+        ...event,
+        sessionId: this.sessionId,
+        page: window.location.pathname,
+      };
+      // Fire and forget - no bloqueamos el tracking
+      navigator.sendBeacon('/api/analytics/events', JSON.stringify(payload));
+    } catch {
+      // Silencioso - el tracking no debe romper la UX
+    }
   }
 
   /**
@@ -433,5 +507,6 @@ declare global {
     _linkedin_data_partner_ids: string[];
     lintrk: (action: string, data: Record<string, unknown>) => void;
     mt: (...args: unknown[]) => void;
+    clarity: (...args: unknown[]) => void;
   }
 }
