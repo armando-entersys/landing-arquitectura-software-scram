@@ -1,8 +1,16 @@
 import { MetadataRoute } from 'next';
+import { locales, localeTags } from '@/lib/i18n/config';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://arquitectura-software.scram2k.com';
   const now = new Date().toISOString();
+
+  const languages = Object.fromEntries(
+    locales.map((l) => [
+      localeTags[l],
+      `${baseUrl}${l === 'es' ? '' : `/${l}`}`,
+    ])
+  );
 
   return [
     {
@@ -10,24 +18,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 1.0,
+      alternates: { languages },
     },
-    {
-      url: `${baseUrl}/#casos-de-exito`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#metodologia`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#faq`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+    ...locales
+      .filter((l) => l !== 'es')
+      .map((l) => ({
+        url: `${baseUrl}/${l}`,
+        lastModified: now,
+        changeFrequency: 'weekly' as const,
+        priority: 1.0,
+        alternates: { languages },
+      })),
   ];
 }

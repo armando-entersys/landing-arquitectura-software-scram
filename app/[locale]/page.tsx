@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { content } from '@/content/copy';
+import { useContent } from '@/lib/i18n/ContentContext';
 import { HeroVisual } from '@/components/sections/HeroVisual';
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
 import { Icon } from '@/components/ui/Icon';
@@ -12,8 +12,10 @@ import { Team } from '@/components/sections/Team';
 import { TrackingProvider } from '@/components/providers/TrackingProvider';
 import { useAIFunnel } from '@/lib/personalization/useAIFunnel';
 import { tracker } from '@/lib/tracking/universal-tracker';
+import { LocaleSwitcher } from '@/components/ui/LocaleSwitcher';
 
 function HomePage() {
+  const { content } = useContent();
   const { getCTAText } = useAIFunnel();
 
   return (
@@ -65,7 +67,7 @@ function HomePage() {
                 <button
                   onClick={() => {
                     tracker.trackCTA(getCTAText(content.hero.ctaPrimary), 'hero', '#contacto');
-                    const msg = encodeURIComponent('Hola, me interesa agendar una sesión de arquitectura de software para mi empresa.');
+                    const msg = encodeURIComponent(content.ui.whatsAppHeroMsg);
                     window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
                   }}
                   className="px-6 py-3.5 md:px-8 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5"
@@ -365,7 +367,7 @@ function HomePage() {
             <button
               onClick={() => {
                 tracker.trackCTA(content.pricing.cta.buttonText, 'pricing', 'whatsapp');
-                const msg = encodeURIComponent('Hola, me interesa solicitar un diagnóstico técnico para mi empresa.');
+                const msg = encodeURIComponent(content.ui.whatsAppPricingMsg);
                 window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
               }}
               className="w-full md:w-auto px-8 py-3.5 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base md:text-lg rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5 hover:shadow-button-green"
@@ -433,7 +435,7 @@ function HomePage() {
             <button
               onClick={() => {
                 tracker.trackCTA(content.cta.button, 'final-cta', 'whatsapp');
-                const msg = encodeURIComponent('Hola, me interesa agendar una sesión de arquitectura de software para mi empresa.');
+                const msg = encodeURIComponent(content.ui.whatsAppCtaMsg);
                 window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
               }}
               className="w-full sm:w-auto px-8 py-3.5 md:py-4 bg-white text-scram-primary hover:bg-white/90 font-semibold text-base rounded-pill shadow-lg transition-all duration-300 hover:-translate-y-0.5"
@@ -463,13 +465,16 @@ function HomePage() {
               />
             </div>
 
+            {/* Locale Switcher */}
+            <LocaleSwitcher />
+
             {/* Copyright */}
             <div className="text-center md:text-right">
               <p className="font-body text-xs md:text-sm text-white/80 mb-1">
-                © 2026 Scram Consulting. Todos los derechos reservados.
+                {content.ui.copyright}
               </p>
               <p className="font-body text-xs text-white/60">
-                Software empresarial que funciona
+                {content.ui.tagline}
               </p>
             </div>
           </div>

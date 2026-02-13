@@ -143,13 +143,52 @@ export function buildVisitorProfile(searchParams: URLSearchParams): VisitorProfi
   };
 }
 
-export function generatePersonalizationStrategy(profile: VisitorProfile): PersonalizationStrategy {
+type LocalizedCTAs = Record<string, Record<string, string>>;
+
+const localizedCTAs: LocalizedCTAs = {
+  high: {
+    es: 'Solicitar Sesión Try & Buy Ahora',
+    en: 'Request a Try & Buy Session Now',
+    is: 'Biðja um Try & Buy fund núna',
+  },
+  problem_aware: {
+    es: 'Ver Cómo Funciona Agentic Architect',
+    en: 'See How Agentic Architect Works',
+    is: 'Sjá hvernig Agentic Architect virkar',
+  },
+  comparing: {
+    es: 'Comparar con Try & Buy Gratis',
+    en: 'Compare with Free Try & Buy',
+    is: 'Bera saman með ókeypis Try & Buy',
+  },
+  cto: {
+    es: 'Ver Arquitectura Técnica',
+    en: 'View Technical Architecture',
+    is: 'Skoða tæknilega arkitektúr',
+  },
+  coo: {
+    es: 'Calcular ROI de Agentic Architect',
+    en: 'Calculate Agentic Architect ROI',
+    is: 'Reikna arðsemi Agentic Architect',
+  },
+  default: {
+    es: 'Solicitar Sesión Try & Buy',
+    en: 'Request a Try & Buy Session',
+    is: 'Biðja um Try & Buy fund',
+  },
+};
+
+function getCTA(key: string, locale: string): string {
+  return localizedCTAs[key]?.[locale] ?? localizedCTAs[key]?.['es'] ?? '';
+}
+
+export function generatePersonalizationStrategy(profile: VisitorProfile, locale = 'es'): PersonalizationStrategy {
   const { intent, persona } = profile;
 
   if (intent === 'high') {
     return {
       heroVariant: 'roi',
-      ctaText: 'Solicitar Sesión Try & Buy Ahora',
+      ctaText: getCTA('high', locale),
       ctaVariant: 'primary',
       showPricing: true,
       emphasizeSection: 'trybuy',
@@ -162,7 +201,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
   if (intent === 'problem_aware') {
     return {
       heroVariant: 'authority',
-      ctaText: 'Ver Cómo Funciona Agentic Architect',
+      ctaText: getCTA('problem_aware', locale),
       ctaVariant: 'primary',
       showPricing: false,
       emphasizeSection: 'problem',
@@ -174,7 +213,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
   if (intent === 'comparing') {
     return {
       heroVariant: 'trust',
-      ctaText: 'Comparar con Try & Buy Gratis',
+      ctaText: getCTA('comparing', locale),
       ctaVariant: 'secondary',
       showPricing: true,
       emphasizeSection: 'socialproof',
@@ -186,7 +225,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
   if (persona === 'cto') {
     return {
       heroVariant: 'technical',
-      ctaText: 'Ver Arquitectura Técnica',
+      ctaText: getCTA('cto', locale),
       ctaVariant: 'primary',
       showPricing: false,
       emphasizeSection: 'solution',
@@ -198,7 +237,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
   if (persona === 'coo') {
     return {
       heroVariant: 'roi',
-      ctaText: 'Calcular ROI de Agentic Architect',
+      ctaText: getCTA('coo', locale),
       ctaVariant: 'primary',
       showPricing: true,
       emphasizeSection: 'problem',
@@ -209,7 +248,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
 
   return {
     heroVariant: 'authority',
-    ctaText: 'Solicitar Sesión Try & Buy',
+    ctaText: getCTA('default', locale),
     ctaVariant: 'primary',
     showPricing: false,
     emphasizeSection: 'solution',

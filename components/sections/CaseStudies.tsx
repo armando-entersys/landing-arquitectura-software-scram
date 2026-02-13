@@ -1,8 +1,10 @@
 'use client';
 
-import { content } from '@/content/copy';
+import { useContent } from '@/lib/i18n/ContentContext';
 
 export function CaseStudies() {
+  const { content } = useContent();
+
   return (
     <section className="py-12 md:py-32 bg-gradient-to-br from-scram-light via-white to-scram-lightAlt">
       <div className="max-w-7xl mx-auto px-5 md:px-12">
@@ -73,7 +75,7 @@ export function CaseStudies() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                       </svg>
                       <p className="font-body text-sm text-scram-paragraph">
-                        Screenshot del sistema real
+                        {content.ui.screenshotPlaceholder}
                       </p>
                     </div>
                   </div>
@@ -93,11 +95,11 @@ export function CaseStudies() {
                 </h3>
 
                 <p className="font-body text-base text-scram-paragraph mb-4">
-                  <span className="font-semibold text-scram-dark">El reto:</span> {caseStudy.challenge}
+                  <span className="font-semibold text-scram-dark">{content.ui.theChallenge}</span> {caseStudy.challenge}
                 </p>
 
                 <p className="font-body text-base text-scram-paragraph mb-6">
-                  <span className="font-semibold text-scram-dark">La solución:</span> {caseStudy.solution}
+                  <span className="font-semibold text-scram-dark">{content.ui.theSolution}</span> {caseStudy.solution}
                 </p>
 
                 {/* Results */}

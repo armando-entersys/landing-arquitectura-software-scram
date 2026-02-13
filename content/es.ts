@@ -1,4 +1,6 @@
-export const content = {
+import type { SiteContent } from './types';
+
+export const es: SiteContent = {
   hero: {
     eyebrow: 'Ingeniería de Software Corporativo | Alcance Nacional',
     title: 'Tus sistemas listos',
@@ -335,5 +337,50 @@ export const content = {
     subtitle: '30 minutos con un Arquitecto Senior. Sin compromiso, sin presentaciones genéricas.',
     button: 'Agendar sesión de arquitectura',
     helperText: 'Respuesta en menos de 24 horas • Diagnóstico técnico incluido',
+  },
+
+  ui: {
+    screenshotPlaceholder: 'Screenshot del sistema real',
+    softwareRunning: 'Software funcionando en empresas reales',
+    videoDemoHere: 'Video demo aquí',
+    theChallenge: 'El reto:',
+    theSolution: 'La solución:',
+    traditionalMethod: 'Método tradicional',
+    withAgenticArchitect: 'Con Agentic Architect',
+    requestDiagnostic: 'Solicitar diagnóstico técnico',
+    closedBudget48h: 'Presupuesto cerrado en 48 horas',
+    scheduleCall: 'Agendar llamada',
+    whatsAppDirect: 'WhatsApp directo',
+    projectsDelivered: '+50 proyectos entregados',
+    industriesBadge: 'Manufactura, logística y distribución',
+    chatTitle: 'Chatea con un experto',
+    chatSubtitle: 'Respuesta en menos de 15 minutos',
+    chatMessage: 'Hola! Soy del equipo SCRAM. ¿En qué puedo ayudarte con tu proyecto de software?',
+    chatNow: 'Ahora',
+    startConversation: 'Iniciar conversación',
+    chatSchedule: 'Lun-Vie 9:00-18:00 | Respuesta inmediata',
+    copyright: '© 2026 Scram Consulting. Todos los derechos reservados.',
+    tagline: 'Software empresarial que funciona',
+    calendarTitle: 'Sesión de Arquitectura de Software - Scram Consulting',
+    calendarDetails:
+      'Sesión de diagnóstico técnico con el Ing. Armando Cortés.\n\nTemas a tratar:\n- Evaluación de necesidades de software\n- Arquitectura recomendada\n- Timeline y presupuesto estimado\n\nContacto: Ing. Armando Cortés\nWhatsApp: +52 221 106 5056\nEmail: contacto@scram2k.com',
+    calendarLocation: 'Google Meet (se enviará enlace)',
+    whatsAppHeroMsg: 'Hola, me interesa agendar una sesión de arquitectura de software para mi empresa.',
+    whatsAppPricingMsg: 'Hola, me interesa solicitar un diagnóstico técnico para mi empresa.',
+    whatsAppCtaMsg: 'Hola, me interesa agendar una sesión de arquitectura de software para mi empresa.',
+    whatsAppTeamMsg: 'Hola Ing. Armando, me interesa conocer más sobre los servicios de arquitectura de software de Scram Consulting.',
+    whatsAppFloatingMsg: 'Hola, me interesa conocer más sobre la Agentic Architect para mi empresa.',
+  },
+
+  metadata: {
+    title: 'Agentic Architect | Software Empresarial | Scram Consulting',
+    description:
+      'Software empresarial desplegado en semanas, no en meses. IA + Ingenieros Senior con presupuesto cerrado. Manufactura, logística y distribución en todo México. Metodología Try & Buy.',
+    ogTitle: 'Software Empresarial en Semanas | Scram Consulting',
+    ogDescription:
+      'Agentic Architect: IA + Ingenieros Senior. Presupuesto cerrado, transparencia total. Manufactura, logística y distribución en todo México.',
+    twitterTitle: 'Software Empresarial en Semanas | Scram Consulting',
+    twitterDescription:
+      'IA + Ingenieros Senior. Presupuesto cerrado. Manufactura, logística y distribución en todo México.',
   },
 };

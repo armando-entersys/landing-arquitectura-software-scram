@@ -1,10 +1,13 @@
 'use client';
 
-import { content } from '@/content/copy';
+import { useContent } from '@/lib/i18n/ContentContext';
 import { Icon } from '@/components/ui/Icon';
 import { X, Check } from 'lucide-react';
+import { tracker } from '@/lib/tracking/universal-tracker';
 
 export function Comparison() {
+  const { content } = useContent();
+
   return (
     <section className="py-12 md:py-32 bg-scram-dark relative overflow-hidden">
       {/* Decorative background */}
@@ -48,7 +51,7 @@ export function Comparison() {
                       <X className="text-red-400 flex-shrink-0 mt-0.5" size={16} />
                       <div>
                         <p className="hidden md:block font-body text-sm text-white/60 mb-1 uppercase tracking-wide">
-                          Método tradicional
+                          {content.ui.traditionalMethod}
                         </p>
                         <p className="font-body text-xs md:text-base text-white">
                           {item.traditional}
@@ -63,7 +66,7 @@ export function Comparison() {
                       <Check className="text-scram-secondary flex-shrink-0 mt-0.5" size={16} />
                       <div>
                         <p className="hidden md:block font-body text-sm text-white/60 mb-1 uppercase tracking-wide">
-                          Con Agentic Architect
+                          {content.ui.withAgenticArchitect}
                         </p>
                         <p className="font-body text-xs md:text-base text-white font-medium">
                           {item.agenticArchitect}
@@ -79,11 +82,18 @@ export function Comparison() {
 
         {/* CTA */}
         <div className="mt-8 md:mt-12 text-center">
-          <button className="w-full md:w-auto px-8 py-3.5 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base md:text-lg rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5">
-            Solicitar diagnóstico técnico
+          <button
+            onClick={() => {
+              tracker.trackCTA(content.ui.requestDiagnostic, 'comparison', 'whatsapp');
+              const msg = encodeURIComponent(content.ui.whatsAppPricingMsg);
+              window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
+            }}
+            className="w-full md:w-auto px-8 py-3.5 md:py-4 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-base md:text-lg rounded-pill shadow-button transition-all duration-300 hover:-translate-y-0.5"
+          >
+            {content.ui.requestDiagnostic}
           </button>
           <p className="font-body text-xs md:text-sm text-white/60 mt-3 md:mt-4">
-            Presupuesto cerrado en 48 horas
+            {content.ui.closedBudget48h}
           </p>
         </div>
       </div>

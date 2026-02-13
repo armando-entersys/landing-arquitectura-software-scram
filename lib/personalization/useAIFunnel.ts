@@ -10,37 +10,10 @@ import {
   type PersonalizationStrategy,
 } from './ai-funnel';
 import { tracker } from '@/lib/tracking/universal-tracker';
+import { useContent } from '@/lib/i18n/ContentContext';
 
-/**
- * Hook: useAIFunnel
- *
- * Conecta los query strings de la URL (utm_source, utm_medium, utm_campaign,
- * intent, industry, persona, keywords, budget) con el sistema de personalización
- * y trackea el perfil del visitante en todas las plataformas configuradas.
- *
- * Ejemplos de URLs que activan personalización:
- *
- * Google Ads (CPC):
- *   ?utm_source=google-ads&utm_medium=cpc&utm_campaign=manufactura&keywords=erp,manufactura&intent=high
- *
- * Facebook Ads:
- *   ?utm_source=facebook&utm_medium=paid-social&utm_campaign=retargeting&industry=logistics&persona=coo
- *
- * LinkedIn Ads:
- *   ?utm_source=linkedin&utm_medium=sponsored&utm_campaign=enterprise&persona=cto&budget=enterprise
- *
- * Directo con parámetros de personalización:
- *   ?industry=manufacturing&persona=coo&intent=comparing
- *
- * El hook:
- * 1. Lee query strings de la URL
- * 2. Construye perfil del visitante (intent, industry, budget, persona)
- * 3. Genera estrategia de personalización (hero variant, CTA text, section emphasis)
- * 4. Guarda en localStorage (30 días de persistencia)
- * 5. Trackea el perfil en GTM, Meta Pixel, LinkedIn, Mautic
- * 6. Retorna { profile, strategy, getCTAText, getSectionEmphasis }
- */
 export function useAIFunnel() {
+  const { locale } = useContent();
   const [profile, setProfile] = useState<VisitorProfile | null>(null);
   const [strategy, setStrategy] = useState<PersonalizationStrategy | null>(null);
 
@@ -49,7 +22,7 @@ export function useAIFunnel() {
     const stored = getStoredVisitorProfile();
     if (stored) {
       setProfile(stored);
-      setStrategy(generatePersonalizationStrategy(stored));
+      setStrategy(generatePersonalizationStrategy(stored, locale));
       return;
     }
 
@@ -67,7 +40,7 @@ export function useAIFunnel() {
     if (hasData) {
       saveVisitorProfile(newProfile);
       setProfile(newProfile);
-      const newStrategy = generatePersonalizationStrategy(newProfile);
+      const newStrategy = generatePersonalizationStrategy(newProfile, locale);
       setStrategy(newStrategy);
 
       // 3. Trackear perfil en todas las plataformas
@@ -81,11 +54,8 @@ export function useAIFunnel() {
         campaign: newProfile.campaign,
       });
     }
-  }, []);
+  }, [locale]);
 
-  /**
-   * Retorna el texto del CTA personalizado o el fallback
-   */
   const getCTAText = useCallback(
     (fallback: string) => {
       if (!strategy) return fallback;
@@ -94,9 +64,6 @@ export function useAIFunnel() {
     [strategy]
   );
 
-  /**
-   * Retorna true si la sección debe ser enfatizada
-   */
   const isSectionEmphasized = useCallback(
     (section: 'problem' | 'solution' | 'trybuy' | 'socialproof') => {
       if (!strategy) return false;
@@ -105,9 +72,6 @@ export function useAIFunnel() {
     [strategy]
   );
 
-  /**
-   * Retorna el nivel de urgencia para el visitante
-   */
   const getUrgencyLevel = useCallback(() => {
     if (!strategy) return 'medium';
     return strategy.urgencyLevel;

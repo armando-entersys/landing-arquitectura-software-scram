@@ -1,6 +1,10 @@
 'use client';
 
+import { useContent } from '@/lib/i18n/ContentContext';
+
 export const HeroVisual = () => {
+  const { content } = useContent();
+
   return (
     <div className="relative w-full h-full">
       {/* Placeholder para video o imagen hero */}
@@ -29,8 +33,8 @@ export const HeroVisual = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <p className="font-body text-sm text-scram-paragraph">Video demo aquí</p>
-            <p className="font-body text-xs text-scram-paragraph/60 mt-2">Software funcionando en empresas reales</p>
+            <p className="font-body text-sm text-scram-paragraph">{content.ui.videoDemoHere}</p>
+            <p className="font-body text-xs text-scram-paragraph/60 mt-2">{content.ui.softwareRunning}</p>
           </div>
         </div>
       </div>
