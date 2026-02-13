@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-export const CentauroDiagram = () => {
+export const AgenticArchitectDiagram = () => {
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -167,7 +167,7 @@ export const CentauroDiagram = () => {
           textAnchor="middle"
           className="fill-white font-bold text-base"
         >
-          Centauro
+          Agentic Architect
         </text>
 
         <text

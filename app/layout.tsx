@@ -23,7 +23,7 @@ const baseUrl = 'https://arquitectura-software.scram2k.com';
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Arquitectura de Software Centauro | Scram Consulting',
+    default: 'Agentic Architect | Software Empresarial | Scram Consulting',
     template: '%s | Scram Consulting',
   },
   description:
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     'integración Oracle SAP',
     'desarrollo software industrial',
     'consultora software México',
-    'arquitectura centauro',
+    'agentic architect',
     'scram consulting',
     'software presupuesto cerrado',
     'try and buy software',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Software Empresarial en Semanas | Scram Consulting',
     description:
-      'Arquitectura Centauro: IA + Ingenieros Senior. Presupuesto cerrado, transparencia total. Manufactura, logística y distribución en todo México.',
+      'Agentic Architect: IA + Ingenieros Senior. Presupuesto cerrado, transparencia total. Manufactura, logística y distribución en todo México.',
     url: baseUrl,
     siteName: 'Scram Consulting',
     locale: 'es_MX',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
         url: `${baseUrl}/logo.png`,
         width: 400,
         height: 120,
-        alt: 'Scram Consulting - Arquitectura de Software Centauro',
+        alt: 'Scram Consulting - Agentic Architect',
       },
     ],
   },
@@ -98,7 +98,7 @@ function StructuredData() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Scram Consulting',
-    alternateName: 'Arquitectura de Software Centauro',
+    alternateName: 'Agentic Architect',
     url: baseUrl,
     logo: `${baseUrl}/logo.png`,
     description:
@@ -110,7 +110,7 @@ function StructuredData() {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+52-999-388-2606',
+      telephone: '+52-221-106-5056',
       contactType: 'sales',
       availableLanguage: ['Spanish'],
     },
@@ -142,7 +142,7 @@ function StructuredData() {
       name: 'México',
     },
     description:
-      'Arquitectura Centauro: IA + Ingenieros Senior desplegando software empresarial para manufactura, logística y distribución. Presupuesto cerrado. Metodología Try & Buy.',
+      'Agentic Architect: IA + Ingenieros Senior desplegando software empresarial para manufactura, logística y distribución. Presupuesto cerrado. Metodología Try & Buy.',
     offers: {
       '@type': 'Offer',
       description: 'Diagnóstico técnico y blueprint de arquitectura',
@@ -232,7 +232,7 @@ function StructuredData() {
   const webPageSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Arquitectura de Software Centauro | Scram Consulting',
+    name: 'Agentic Architect | Software Empresarial | Scram Consulting',
     description: 'Software empresarial desplegado en semanas con presupuesto cerrado para manufactura, logística y distribución en México.',
     url: baseUrl,
     inLanguage: 'es-MX',

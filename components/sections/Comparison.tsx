@@ -57,16 +57,16 @@ export function Comparison() {
                     </div>
                   </div>
 
-                  {/* Centauro */}
+                  {/* Agentic Architect */}
                   <div className="bg-scram-secondary/10 border border-scram-secondary/30 rounded-lg p-3 md:p-4">
                     <div className="flex items-start gap-2 md:gap-3">
                       <Check className="text-scram-secondary flex-shrink-0 mt-0.5" size={16} />
                       <div>
                         <p className="hidden md:block font-body text-sm text-white/60 mb-1 uppercase tracking-wide">
-                          Con Centauro
+                          Con Agentic Architect
                         </p>
                         <p className="font-body text-xs md:text-base text-white font-medium">
-                          {item.centauro}
+                          {item.agenticArchitect}
                         </p>
                       </div>
                     </div>

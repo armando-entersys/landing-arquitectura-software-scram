@@ -26,7 +26,7 @@ export default function FloatingWhatsApp() {
 
   const handleWhatsAppClick = () => {
     const message = encodeURIComponent(
-      'Hola, me interesa conocer más sobre la Arquitectura de Software Centauro para mi empresa.'
+      'Hola, me interesa conocer más sobre la Agentic Architect para mi empresa.'
     );
     window.open(`https://wa.me/522211065056?text=${message}`, '_blank');
     setShowBadge(false);

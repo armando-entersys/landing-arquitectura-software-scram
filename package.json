@@ -1,7 +1,7 @@
 {
-  "name": "landing-centauro",
+  "name": "landing-agentic-architect",
   "version": "1.0.0",
-  "description": "Landing page de clase mundial para Arquitectura de Software Centauro - Scram Consulting",
+  "description": "Landing page de clase mundial para Agentic Architect - Scram Consulting",
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
@@ -14,7 +14,7 @@
     "landing-page",
     "arquitectura-software",
     "scram",
-    "centauro"
+    "agentic-architect"
   ],
   "author": "Scram Consulting",
   "license": "PROPRIETARY",

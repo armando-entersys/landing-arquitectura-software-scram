@@ -162,7 +162,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
   if (intent === 'problem_aware') {
     return {
       heroVariant: 'authority',
-      ctaText: 'Ver Cómo Funciona Centauro',
+      ctaText: 'Ver Cómo Funciona Agentic Architect',
       ctaVariant: 'primary',
       showPricing: false,
       emphasizeSection: 'problem',
@@ -198,7 +198,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
   if (persona === 'coo') {
     return {
       heroVariant: 'roi',
-      ctaText: 'Calcular ROI de Centauro',
+      ctaText: 'Calcular ROI de Agentic Architect',
       ctaVariant: 'primary',
       showPricing: true,
       emphasizeSection: 'problem',

@@ -1,7 +1,7 @@
-# Scram Consulting - Arquitectura de Software Centauro
+# Scram Consulting - Agentic Architect
 # https://arquitectura-software.scram2k.com
 
-> Scram Consulting es una firma mexicana de ingeniería de software empresarial con más de 15 años de experiencia. Desarrollamos sistemas de misión crítica para manufactura, logística y distribución en todo México utilizando la Arquitectura Centauro: un modelo híbrido que combina inteligencia artificial con ingenieros senior.
+> Scram Consulting es una firma mexicana de ingeniería de software empresarial con más de 15 años de experiencia. Desarrollamos sistemas de misión crítica para manufactura, logística y distribución en todo México utilizando Agentic Architect: un modelo híbrido que combina inteligencia artificial con ingenieros senior.
 
 ## Qué hacemos
 - Desarrollo de software empresarial a la medida (ERP, WMS, CRM, sistemas de gestión)
@@ -20,7 +20,7 @@ Nuestro modelo elimina el riesgo para el cliente:
 ## Diferenciadores
 - **Presupuesto cerrado**: Precio fijo garantizado desde el día uno
 - **Glass Box**: Transparencia total - acceso en tiempo real a repositorios y tableros
-- **Arquitectura Centauro**: IA genera 80% del código base, ingenieros senior auditan y diseñan lógica de negocio
+- **Agentic Architect**: IA genera 80% del código base, ingenieros senior auditan y diseñan lógica de negocio
 - **Velocidad**: 3x más rápido que el método tradicional
 - **Costo**: 40% menos que consultoras tradicionales
 
@@ -42,7 +42,7 @@ Equipo de arquitectos e ingenieros senior distribuidos en diferentes estados de 
 
 ## Contacto
 - Web: https://arquitectura-software.scram2k.com
-- WhatsApp: +52 999 388 2606
+- WhatsApp: +52 221 106 5056
 - Director de Proyectos: Ing. Armando Cortés
 
 ## Tecnologías

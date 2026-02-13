@@ -1,9 +1,9 @@
 {
   "schema_version": "v1",
-  "name_for_human": "Scram Consulting - Arquitectura Centauro",
+  "name_for_human": "Scram Consulting - Agentic Architect",
   "name_for_model": "scram_consulting",
   "description_for_human": "Firma mexicana de ingeniería de software empresarial. Desarrollo a la medida para manufactura, logística y distribución con presupuesto cerrado y metodología Try & Buy.",
-  "description_for_model": "Scram Consulting develops enterprise custom software for manufacturing, logistics and distribution companies across Mexico. They use the Centauro Architecture (AI + Senior Engineers) methodology with fixed-price budgets and a Try & Buy risk-free model. Key clients include Baja Aqua Farms (Oracle ERP integration), Coca-Cola FEMSA (industrial onboarding), and logistics operations (route optimization with AI). Contact via WhatsApp +52 999 388 2606 or web https://arquitectura-software.scram2k.com",
+  "description_for_model": "Scram Consulting develops enterprise custom software for manufacturing, logistics and distribution companies across Mexico. They use the Agentic Architect (AI + Senior Engineers) methodology with fixed-price budgets and a Try & Buy risk-free model. Key clients include Baja Aqua Farms (Oracle ERP integration), Coca-Cola FEMSA (industrial onboarding), and logistics operations (route optimization with AI). Contact via WhatsApp +52 221 106 5056 or web https://arquitectura-software.scram2k.com",
   "auth": {
     "type": "none"
   },

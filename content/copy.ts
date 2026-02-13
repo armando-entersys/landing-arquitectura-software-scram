@@ -5,7 +5,7 @@ export const content = {
     titleHighlight: 'en semanas',
     titleContinued: 'no en meses',
     subtitle:
-      'Arquitectura Centauro: IA + Ingenieros Senior desplegando software empresarial para manufactura, logística y distribución en todo México. Presupuesto cerrado. Transparencia total.',
+      'Agentic Architect: IA + Ingenieros Senior desplegando software empresarial para manufactura, logística y distribución en todo México. Presupuesto cerrado. Transparencia total.',
     ctaPrimary: 'Solicitar sesión de arquitectura',
     ctaSecondary: 'Ver casos de éxito',
     helperText: 'Diagnóstico sin compromiso • Respuesta en 24h • Cobertura nacional',
@@ -73,7 +73,7 @@ export const content = {
   },
 
   benefits: {
-    title: 'Arquitectura Centauro',
+    title: 'Agentic Architect',
     items: [
       {
         icon: 'Zap',
@@ -177,37 +177,37 @@ export const content = {
   },
 
   comparison: {
-    title: 'Centauro vs método tradicional',
+    title: 'Agentic Architect vs método tradicional',
     subtitle: '4 de cada 10 empresas mexicanas pierden $1-5 MDD anuales por fallas de software',
     items: [
       {
         aspect: 'Transparencia',
         traditional: 'Reportes cada 2 semanas que no entiendes',
-        centauro: 'Acceso en tiempo real a repositorios y tableros',
+        agenticArchitect: 'Acceso en tiempo real a repositorios y tableros',
         icon: 'Eye',
       },
       {
         aspect: 'Presupuesto',
         traditional: 'Se dispara 40-60% durante el proyecto',
-        centauro: 'Precio cerrado desde el inicio, garantizado por contrato',
+        agenticArchitect: 'Precio cerrado desde el inicio, garantizado por contrato',
         icon: 'DollarSign',
       },
       {
         aspect: 'Velocidad',
         traditional: '4-6 meses para ver algo funcional',
-        centauro: '1-2 semanas para primer prototipo operativo',
+        agenticArchitect: '1-2 semanas para primer prototipo operativo',
         icon: 'Clock',
       },
       {
         aspect: 'Riesgo',
         traditional: 'Anticipo grande sin garantías reales',
-        centauro: 'Try & Buy: evalúa antes de comprometerte',
+        agenticArchitect: 'Try & Buy: evalúa antes de comprometerte',
         icon: 'Shield',
       },
       {
         aspect: 'Calidad',
         traditional: 'Funciona en la demo, falla en producción',
-        centauro: 'Validado con tu operación real en campo',
+        agenticArchitect: 'Validado con tu operación real en campo',
         icon: 'CheckCircle',
       },
     ],
