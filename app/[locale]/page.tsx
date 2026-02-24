@@ -260,12 +260,12 @@ function HomePage() {
             </h2>
           </div>
 
-          {/* Mobile: horizontal scroll. Desktop: grid */}
-          <div className="flex md:grid md:grid-cols-3 gap-4 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 -mx-5 px-5 md:mx-0 md:px-0">
+          {/* Mobile: vertically stacked. Desktop: grid */}
+          <div className="flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-8">
             {content.testimonials.items.map((testimonial, idx) => (
               <div
                 key={idx}
-                className="min-w-[280px] md:min-w-0 snap-center bg-white p-5 md:p-8 rounded-card shadow-card-hover hover:shadow-card transition-shadow duration-300 flex-shrink-0 md:flex-shrink"
+                className="w-full bg-white p-5 md:p-8 rounded-card shadow-card-hover hover:shadow-card transition-shadow duration-300"
               >
                 {/* Quote */}
                 <div className="mb-4 md:mb-6">

@@ -20,16 +20,28 @@ export function CaseStudies() {
           </p>
         </div>
 
-        {/* Mobile: horizontal scroll cards. Desktop: stacked full cards */}
-        <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-5 px-5">
+        {/* Mobile: vertically stacked full-width cards. Desktop: stacked full cards */}
+        <div className="flex flex-col md:hidden gap-6">
           {content.caseStudies.cases.map((caseStudy, idx) => (
             <div
               key={idx}
-              className="min-w-[300px] snap-center bg-white rounded-card shadow-card border border-scram-border p-5 flex-shrink-0"
+              className="w-full bg-white rounded-card shadow-card border-l-4 border-scram-primary p-5"
             >
-              <span className="inline-block px-2 py-0.5 bg-scram-primary/10 text-scram-primary rounded-pill text-xs font-semibold mb-2">
+              {/* Mini PhoneSlideshow for TEC case */}
+              {isTecCase(caseStudy.image) && (
+                <div className="mb-4 flex justify-center">
+                  <div className="w-48">
+                    <PhoneSlideshow />
+                  </div>
+                </div>
+              )}
+
+              <span className="inline-block px-2 py-0.5 bg-scram-primary/10 text-scram-primary rounded-pill text-xs font-semibold mb-1">
                 {caseStudy.industry}
               </span>
+              <p className="font-body text-sm font-semibold text-scram-paragraph mb-2">
+                {caseStudy.company}
+              </p>
               <h3 className="font-heading text-xl font-bold text-scram-dark mb-2">
                 {caseStudy.title}
               </h3>
@@ -37,8 +49,8 @@ export function CaseStudies() {
                 {caseStudy.solution}
               </p>
 
-              {/* Results - compact */}
-              <div className="grid grid-cols-3 gap-2 p-3 bg-scram-secondary/5 rounded-lg border border-scram-secondary/20 mb-3">
+              {/* Results */}
+              <div className="grid grid-cols-3 gap-2 p-3 bg-scram-secondary/5 rounded-lg border border-scram-secondary/20 mb-4">
                 {caseStudy.results.map((result, ridx) => (
                   <div key={ridx} className="text-center">
                     <div className="font-heading text-xl font-bold text-scram-secondary">
@@ -52,7 +64,7 @@ export function CaseStudies() {
               </div>
 
               <blockquote className="border-l-3 border-scram-primary pl-3">
-                <p className="font-body text-xs text-scram-dark italic">
+                <p className="font-body text-sm text-scram-dark italic leading-relaxed">
                   &ldquo;{caseStudy.testimonial}&rdquo;
                 </p>
               </blockquote>
