@@ -1,6 +1,9 @@
 'use client';
 
 import { useContent } from '@/lib/i18n/ContentContext';
+import { PhoneSlideshow } from '@/components/ui/PhoneSlideshow';
+
+const isTecCase = (image: string) => image.includes('/cases/tec/');
 
 export function CaseStudies() {
   const { content } = useContent();
@@ -66,20 +69,24 @@ export function CaseStudies() {
                 idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
               } gap-8 lg:gap-12 items-center bg-white rounded-card shadow-card-hover p-8 lg:p-12 border border-scram-border hover:border-scram-primary transition-all duration-300`}
             >
-              {/* Image */}
+              {/* Image / Phone slideshow */}
               <div className="w-full lg:w-1/2">
-                <div className="relative aspect-video rounded-card overflow-hidden bg-gradient-to-br from-scram-primary/20 to-scram-secondary/20">
-                  <div className="absolute inset-0 flex items-center justify-center backdrop-blur-sm bg-white/30">
-                    <div className="text-center p-8">
-                      <svg className="w-20 h-20 mx-auto mb-4 text-scram-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                      </svg>
-                      <p className="font-body text-sm text-scram-paragraph">
-                        {content.ui.screenshotPlaceholder}
-                      </p>
+                {isTecCase(caseStudy.image) ? (
+                  <PhoneSlideshow />
+                ) : (
+                  <div className="relative aspect-video rounded-card overflow-hidden bg-gradient-to-br from-scram-primary/20 to-scram-secondary/20">
+                    <div className="absolute inset-0 flex items-center justify-center backdrop-blur-sm bg-white/30">
+                      <div className="text-center p-8">
+                        <svg className="w-20 h-20 mx-auto mb-4 text-scram-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                        </svg>
+                        <p className="font-body text-sm text-scram-paragraph">
+                          {content.ui.screenshotPlaceholder}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
 
               {/* Content */}

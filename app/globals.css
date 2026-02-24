@@ -40,6 +40,16 @@
     @apply bg-scram-navlink;
   }
 
+  /* Phone slideshow — 5 images, 3s each, 15s total cycle */
+  .phone-slide {
+    opacity: 0;
+    animation: phoneFade 15s infinite;
+  }
+
+  .phone-dot {
+    animation: phoneDot 15s infinite;
+  }
+
   /* Text gradient */
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-scram-primary to-scram-secondary;
@@ -48,5 +58,41 @@
   /* Glassmorphism */
   .glass {
     @apply bg-white/80 backdrop-blur-lg;
+  }
+}
+
+/* Phone slideshow keyframes — outside @layer so they're globally available */
+@keyframes phoneFade {
+  0%,
+  6.67% {
+    opacity: 0;
+  }
+  /* fade in  0-6.67%  (0-1s)   */
+  6.67%,
+  20% {
+    opacity: 1;
+  }
+  /* visible   6.67-20% (1-3s)  */
+  26.67% {
+    opacity: 0;
+  }
+  /* fade out  20-26.67% (3-4s) */
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes phoneDot {
+  0%,
+  6.67% {
+    opacity: 0.3;
+  }
+  6.67%,
+  20% {
+    opacity: 1;
+  }
+  26.67%,
+  100% {
+    opacity: 0.3;
   }
 }
