@@ -60,7 +60,7 @@ export const content = {
 
   approach: {
     eyebrow: 'Nuestra metodología',
-    title: 'Arquitectura Centauro',
+    title: 'Arquitectura Agentic Architect',
     subtitle: 'La combinación perfecta entre inteligencia artificial y experiencia humana.',
     intro:
       'No creemos en reemplazar ingenieros con IA. Creemos en potenciar el talento humano con herramientas de última generación.',

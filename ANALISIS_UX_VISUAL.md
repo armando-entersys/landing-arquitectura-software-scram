@@ -1,4 +1,4 @@
-# Análisis UX Exhaustivo - Landing Arquitectura Software Centauro
+# Análisis UX Exhaustivo - Landing Arquitectura Software Agentic Architect
 ## Perspectiva: Experto en Conversión de Google Ads
 
 ---
@@ -50,7 +50,7 @@
 **Impacto**: -15% diferenciación percibida
 **Solución**:
 - ✅ Tabla comparativa visual
-- ✅ Infografía de proceso tradicional vs Centauro
+- ✅ Infografía de proceso tradicional vs Agentic Architect
 - ✅ Screenshots de "Glass Box" (transparencia)
 
 ---

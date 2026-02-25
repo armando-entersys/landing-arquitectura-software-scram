@@ -1,5 +1,5 @@
 # 🚀 GUÍA DE IMPLEMENTACIÓN COMPLETA
-## Landing Centauro - Arquitectura de Clase Mundial
+## Landing Agentic Architect - Arquitectura de Clase Mundial
 
 Este documento contiene TODO el código necesario para implementar la landing page completa.
 Sigue los pasos en orden para crear una landing de nivel Silicon Valley.
@@ -11,7 +11,7 @@ Sigue los pasos en orden para crear una landing de nivel Silicon Valley.
 Primero, crea esta estructura de carpetas:
 
 ```bash
-landing-centauro/
+Agentic_Architect/
 ├── app/
 │   ├── fonts/
 │   ├── api/
@@ -262,7 +262,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
   if (intent === 'problem_aware') {
     return {
       heroVariant: 'authority',
-      ctaText: 'Ver Cómo Funciona Centauro',
+      ctaText: 'Ver Cómo Funciona Agentic Architect',
       ctaVariant: 'primary',
       showPricing: false,
       emphasizeSection: 'problem', // Mostrar problemas primero
@@ -299,7 +299,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
   if (persona === 'coo') {
     return {
       heroVariant: 'roi',
-      ctaText: 'Calcular ROI de Centauro',
+      ctaText: 'Calcular ROI de Agentic Architect',
       ctaVariant: 'primary',
       showPricing: true,
       emphasizeSection: 'problem',

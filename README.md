@@ -1,6 +1,6 @@
-# 🚀 Landing Centauro - Arquitectura de Software
+# 🚀 Agentic Architect - Arquitectura de Software
 
-Landing page de clase mundial para el servicio de Arquitectura de Software Centauro de Scram Consulting.
+Landing page de clase mundial para el servicio de Agentic Architect de Scram Consulting.
 
 ## ✨ Características de Nivel Silicon Valley
 
@@ -48,11 +48,11 @@ npm run dev
 
 ```bash
 # 1. Transferir código al servidor
-scp -r . user@servidor:/path/to/landing-centauro
+scp -r . user@servidor:/path/to/Agentic_Architect
 
 # 2. SSH al servidor
 ssh user@servidor
-cd /path/to/landing-centauro
+cd /path/to/Agentic_Architect
 
 # 3. Configurar variables de entorno
 cp .env.example .env
@@ -63,7 +63,7 @@ docker-compose build
 docker-compose up -d
 
 # 5. Verificar logs
-docker-compose logs -f landing-centauro
+docker-compose logs -f Agentic_Architect
 
 # 6. Verificar salud
 curl https://arquitectura-software.scram2k.com
@@ -122,13 +122,13 @@ npx lighthouse https://arquitectura-software.scram2k.com --view
 ### Ver Logs
 
 ```bash
-docker-compose logs -f landing-centauro
+docker-compose logs -f Agentic_Architect
 ```
 
 ### Reiniciar Servicio
 
 ```bash
-docker-compose restart landing-centauro
+docker-compose restart Agentic_Architect
 ```
 
 ### Actualizar Código
@@ -148,7 +148,7 @@ docker system prune -af
 ## 📝 Estructura del Proyecto
 
 ```
-landing-centauro/
+Agentic_Architect/
 ├── app/                      # Next.js App Router
 │   ├── layout.tsx           # Layout principal con GTM
 │   ├── page.tsx             # Home page

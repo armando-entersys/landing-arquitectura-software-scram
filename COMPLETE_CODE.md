@@ -1,4 +1,4 @@
-# 🚀 CÓDIGO COMPLETO - LANDING CENTAURO
+# 🚀 CÓDIGO COMPLETO - AGENTIC ARCHITECT
 ## Implementación de Clase Mundial
 
 Este documento contiene TODOS los archivos de código necesarios para la landing.
@@ -104,7 +104,7 @@ export function generatePersonalizationStrategy(profile: VisitorProfile): Person
   if (profile.intent === 'problem_aware') {
     return {
       heroVariant: 'authority',
-      ctaText: 'Ver Cómo Funciona Centauro',
+      ctaText: 'Ver Cómo Funciona Agentic Architect',
       ctaVariant: 'primary',
       showPricing: false,
       emphasizeSection: 'problem',
@@ -277,11 +277,11 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Arquitectura de Software Centauro | Scram Consulting',
-  description: 'Software de clase mundial desplegado en semanas. Modelo Try & Buy con transparencia radical. Arquitectura Centauro: IA + Ingenieros Senior.',
-  keywords: ['desarrollo software empresarial', 'arquitectura centauro', 'scram consulting', 'try and buy', 'glass box'],
+  title: 'Arquitectura de Software Agentic Architect | Scram Consulting',
+  description: 'Software de clase mundial desplegado en semanas. Modelo Try & Buy con transparencia radical. Arquitectura Agentic Architect: IA + Ingenieros Senior.',
+  keywords: ['desarrollo software empresarial', 'agentic architect', 'scram consulting', 'try and buy', 'glass box'],
   openGraph: {
-    title: 'Arquitectura de Software Centauro - Scram Consulting',
+    title: 'Arquitectura de Software Agentic Architect - Scram Consulting',
     description: 'Detenga el Secuestro Técnico. Software de Clase Mundial en Semanas.',
     url: 'https://arquitectura-software.scram2k.com',
     siteName: 'Scram Consulting',
@@ -366,7 +366,7 @@ export default function HomePage() {
 
             <p className="text-title-large text-neutral-90 mb-md3-8 max-w-3xl">
               Eliminamos la "Caja Negra" para corporativos en todo México. Implementamos{' '}
-              <strong className="text-secondary">Arquitectura Centauro</strong> (Sinergia IA + Ingenieros Senior)
+              <strong className="text-secondary">Arquitectura Agentic Architect</strong> (Sinergia IA + Ingenieros Senior)
               desde nuestro Command Center en Vibe Working para garantizar transparencia radical,
               reducir deuda técnica y recortar costos de desarrollo en{' '}
               <strong className="text-primary">40% verificado</strong>.
@@ -377,7 +377,7 @@ export default function HomePage() {
                 Solicitar Sesión Try & Buy (Sin Costo)
               </Button>
               <Button variant="outlined" size="lg" href="#solution">
-                Conocer Arquitectura Centauro
+                Conocer Arquitectura Agentic Architect
               </Button>
             </div>
 
@@ -470,11 +470,11 @@ CMD ["node", "server.js"]
 version: '3.8'
 
 services:
-  landing-centauro:
+  agentic-architect:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: scram-landing-centauro
+    container_name: scram-agentic-architect
     restart: unless-stopped
     environment:
       - NODE_ENV=production
@@ -494,10 +494,10 @@ services:
           memory: 256M
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.landing-centauro.rule=Host(`arquitectura-software.scram2k.com`)"
-      - "traefik.http.routers.landing-centauro.entrypoints=websecure"
-      - "traefik.http.routers.landing-centauro.tls.certresolver=letsencrypt"
-      - "traefik.http.services.landing-centauro.loadbalancer.server.port=3000"
+      - "traefik.http.routers.agentic-architect.rule=Host(`arquitectura-software.scram2k.com`)"
+      - "traefik.http.routers.agentic-architect.entrypoints=websecure"
+      - "traefik.http.routers.agentic-architect.tls.certresolver=letsencrypt"
+      - "traefik.http.services.agentic-architect.loadbalancer.server.port=3000"
 
 networks:
   traefik-public:
@@ -537,7 +537,7 @@ docker-compose build
 docker-compose up -d
 
 # 4. Ver logs
-docker-compose logs -f landing-centauro
+docker-compose logs -f agentic-architect
 
 # 5. Verificar salud
 curl https://arquitectura-software.scram2k.com
@@ -549,7 +549,7 @@ curl https://arquitectura-software.scram2k.com
 
 1. **Completar Secciones:**
    - Pain Section (3 patologías)
-   - Solution Section (Centauro + Glass Box)
+   - Solution Section (Agentic Architect + Glass Box)
    - Try & Buy Section
    - FAQ Section
 

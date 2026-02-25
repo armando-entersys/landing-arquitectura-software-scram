@@ -397,7 +397,7 @@ En un **Docker volume** llamado `analytics-data`. Esto significa que aunque el c
 ### Variables de entorno
 El archivo `.env` contiene todas las claves y configuraciones. Este archivo:
 - **NO esta en Git** (esta en `.gitignore`) para seguridad
-- **Esta directamente en el servidor** en `/srv/landing-arquitectura-software-scram/.env`
+- **Esta directamente en el servidor** en `/srv/Agentic_Architect/.env`
 - Si necesitas cambiar una variable, hay que editarlo directamente en el servidor
 
 ---
@@ -408,7 +408,7 @@ El archivo `.env` contiene todas las claves y configuraciones. Este archivo:
 
 **Paso 1: Push desde tu maquina**
 ```bash
-cd "C:\Landing Arquitectura Software Scram\landing-centauro"
+cd "C:\Landing Arquitectura Software Scram\Agentic_Architect"
 git add -A
 git commit -m "Descripcion del cambio"
 git push origin main
@@ -416,21 +416,21 @@ git push origin main
 
 **Paso 2: Pull y rebuild en el servidor**
 ```bash
-gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/landing-arquitectura-software-scram && sudo git pull origin main && sudo docker compose up -d --build"
+gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/Agentic_Architect && sudo git pull origin main && sudo docker compose up -d --build"
 ```
 
 ### One-liner (todo junto)
 ```bash
-cd "C:\Landing Arquitectura Software Scram\landing-centauro" && git add -A && git commit -m "Deploy update" && git push origin main && gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/landing-arquitectura-software-scram && sudo git pull origin main && sudo docker compose up -d --build"
+cd "C:\Landing Arquitectura Software Scram\Agentic_Architect" && git add -A && git commit -m "Deploy update" && git push origin main && gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/Agentic_Architect && sudo git pull origin main && sudo docker compose up -d --build"
 ```
 
 ### Verificar que funciona
 ```bash
 # Ver si el contenedor esta corriendo
-gcloud compute ssh prod-server --zone=us-central1-c --command="docker ps --filter name=scram-landing-arquitectura-software-scram"
+gcloud compute ssh prod-server --zone=us-central1-c --command="docker ps --filter name=scram-Agentic_Architect"
 
 # Ver logs
-gcloud compute ssh prod-server --zone=us-central1-c --command="docker logs scram-landing-arquitectura-software-scram --tail 20"
+gcloud compute ssh prod-server --zone=us-central1-c --command="docker logs scram-Agentic_Architect --tail 20"
 
 # Verificar HTTP
 curl -I https://arquitectura-software.scram2k.com
@@ -438,11 +438,11 @@ curl -I https://arquitectura-software.scram2k.com
 
 ### Actualizar .env en produccion
 ```bash
-gcloud compute ssh prod-server --zone=us-central1-c --command="sudo nano /srv/landing-arquitectura-software-scram/.env"
+gcloud compute ssh prod-server --zone=us-central1-c --command="sudo nano /srv/Agentic_Architect/.env"
 ```
 Despues de editar el .env, reiniciar el contenedor:
 ```bash
-gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/landing-arquitectura-software-scram && sudo docker compose up -d --build"
+gcloud compute ssh prod-server --zone=us-central1-c --command="cd /srv/Agentic_Architect && sudo docker compose up -d --build"
 ```
 
 ---
@@ -643,7 +643,7 @@ Actualmente, TODOS los puntos de contacto van a WhatsApp del Ing. Armando Cortes
 ### Para implementar
 6. **Formulario de contacto** — Capturar leads con email (hoy solo WhatsApp)
 7. **Mautic CRM** — Automatizar seguimiento de leads
-8. **Actualizar .env en servidor** — `NEXT_PUBLIC_SITE_NAME` aun dice "Centauro" en produccion
+8. **Actualizar .env en servidor** — `NEXT_PUBLIC_SITE_NAME` aun dice "Agentic Architect" en produccion
 
 ### Para crecer
 9. **Blog / contenido SEO** — Articulos para trafico organico
