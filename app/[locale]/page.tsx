@@ -22,7 +22,7 @@ function HomePage() {
     <>
     <main className="min-h-screen">
       {/* Hero Section - Premium Design */}
-      <section className="relative min-h-[85vh] md:min-h-screen flex items-center bg-gradient-to-br from-white via-scram-light to-scram-lightAlt overflow-hidden">
+      <section className="relative bg-gradient-to-br from-white via-scram-light to-scram-lightAlt overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-br from-scram-primary/20 to-transparent rounded-full blur-3xl" />
@@ -42,8 +42,8 @@ function HomePage() {
               />
             </div>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-            {/* Left: Content */}
+          <div className="max-w-3xl">
+            {/* Hero Content */}
             <div>
               <div className="mb-4 md:mb-6">
                 <span className="px-3 py-1.5 md:px-4 md:py-2 bg-scram-primary/10 text-scram-primary rounded-pill text-sm md:text-base font-semibold border border-scram-primary/20">
@@ -102,14 +102,10 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Right: Video - visible on desktop */}
-            <div className="hidden md:flex items-center">
-              <HeroVisual />
-            </div>
           </div>
 
-          {/* Mobile: Video below hero content */}
-          <div className="mt-8 md:hidden">
+          {/* Video - full width below hero content */}
+          <div className="mt-8 md:mt-12">
             <HeroVisual />
           </div>
         </div>
