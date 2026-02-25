@@ -36,12 +36,12 @@ export function CaseStudies() {
                   </div>
                 </div>
               ) : (
-                <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 shadow-md">
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 shadow-md bg-scram-light">
                   <Image
                     src={caseStudy.image}
                     alt={caseStudy.title}
                     fill
-                    className="object-cover"
+                    className="object-contain"
                     sizes="100vw"
                   />
                 </div>
@@ -97,12 +97,12 @@ export function CaseStudies() {
                 {isTecCase(caseStudy.image) ? (
                   <PhoneSlideshow />
                 ) : (
-                  <div className="relative aspect-video rounded-card overflow-hidden shadow-lg">
+                  <div className="relative aspect-[4/3] rounded-card overflow-hidden shadow-lg bg-scram-light">
                     <Image
                       src={caseStudy.image}
                       alt={caseStudy.title}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       sizes="(max-width: 1024px) 100vw, 50vw"
                     />
                   </div>
