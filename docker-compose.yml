@@ -14,7 +14,7 @@ services:
     volumes:
       - analytics-data:/app/.analytics
     networks:
-      - traefik-public
+      - traefik
     deploy:
       resources:
         limits:
@@ -39,5 +39,5 @@ volumes:
   analytics-data:
 
 networks:
-  traefik-public:
+  traefik:
     external: true
