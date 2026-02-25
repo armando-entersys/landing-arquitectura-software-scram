@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useContent } from '@/lib/i18n/ContentContext';
 import { PhoneSlideshow } from '@/components/ui/PhoneSlideshow';
 
@@ -27,12 +28,22 @@ export function CaseStudies() {
               key={idx}
               className="w-full bg-white rounded-card shadow-card border-l-4 border-scram-primary p-5"
             >
-              {/* Mini PhoneSlideshow for TEC case */}
-              {isTecCase(caseStudy.image) && (
+              {/* Case image */}
+              {isTecCase(caseStudy.image) ? (
                 <div className="mb-4 flex justify-center">
                   <div className="w-48">
                     <PhoneSlideshow />
                   </div>
+                </div>
+              ) : (
+                <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 shadow-md">
+                  <Image
+                    src={caseStudy.image}
+                    alt={caseStudy.title}
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                  />
                 </div>
               )}
 
@@ -86,17 +97,14 @@ export function CaseStudies() {
                 {isTecCase(caseStudy.image) ? (
                   <PhoneSlideshow />
                 ) : (
-                  <div className="relative aspect-video rounded-card overflow-hidden bg-gradient-to-br from-scram-primary/20 to-scram-secondary/20">
-                    <div className="absolute inset-0 flex items-center justify-center backdrop-blur-sm bg-white/30">
-                      <div className="text-center p-8">
-                        <svg className="w-20 h-20 mx-auto mb-4 text-scram-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                        </svg>
-                        <p className="font-body text-sm text-scram-paragraph">
-                          {content.ui.screenshotPlaceholder}
-                        </p>
-                      </div>
-                    </div>
+                  <div className="relative aspect-video rounded-card overflow-hidden shadow-lg">
+                    <Image
+                      src={caseStudy.image}
+                      alt={caseStudy.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
                   </div>
                 )}
               </div>
