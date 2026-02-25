@@ -144,7 +144,7 @@ export const en: SiteContent = {
           { metric: '16 DBs', label: 'Unified in one gateway' },
           { metric: 'CFDI', label: 'Automated e-invoicing' },
         ],
-        image: '/images/cases/aquafarms-erp.jpg',
+        image: '/images/cases/aquafarms-erp.webp',
         testimonial: 'From order to stamped invoice in minutes, not days. The pipeline runs itself and every step is fully audited.',
       },
       {
@@ -172,7 +172,7 @@ export const en: SiteContent = {
           { metric: 'Real-time', label: 'Customer tracking' },
           { metric: '5 roles', label: 'Procurement, Traffic, Driver, Sales, Director' },
         ],
-        image: '/images/cases/scram-logistics.jpg',
+        image: '/images/cases/scram-logistics.webp',
         testimonial: 'Customers can see their order in real time. Failed deliveries dropped dramatically.',
       },
     ],

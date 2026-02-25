@@ -144,7 +144,7 @@ export const is: SiteContent = {
           { metric: '16 gagnagrunnar', label: 'Sameinaðir í einni gátt' },
           { metric: 'CFDI', label: 'Sjálfvirk rafræn reikningagerð' },
         ],
-        image: '/images/cases/aquafarms-erp.jpg',
+        image: '/images/cases/aquafarms-erp.webp',
         testimonial: 'Frá pöntun í stimplaðan reikning á mínútum, ekki dögum. Keðjan keyrir sjálf og hvert skref er endurskoðað.',
       },
       {
@@ -172,7 +172,7 @@ export const is: SiteContent = {
           { metric: 'Rauntíma', label: 'Rakning viðskiptavina' },
           { metric: '5 hlutverk', label: 'Innkaup, Umferð, Bílstjóri, Sala, Forstjóri' },
         ],
-        image: '/images/cases/scram-logistics.jpg',
+        image: '/images/cases/scram-logistics.webp',
         testimonial: 'Viðskiptavinir sjá pöntun sína í rauntíma. Misheppnaðar afhendingar minnkuðu verulega.',
       },
     ],

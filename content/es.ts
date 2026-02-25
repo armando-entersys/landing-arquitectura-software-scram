@@ -144,7 +144,7 @@ export const es: SiteContent = {
           { metric: '16 DBs', label: 'Integradas en un gateway' },
           { metric: 'CFDI', label: 'Timbrado automatizado' },
         ],
-        image: '/images/cases/aquafarms-erp.jpg',
+        image: '/images/cases/aquafarms-erp.webp',
         testimonial: 'De orden a factura timbrada en minutos, no en días. El pipeline corre solo y cada paso queda auditado.',
       },
       {
@@ -172,7 +172,7 @@ export const es: SiteContent = {
           { metric: 'Real-time', label: 'Tracking para cliente' },
           { metric: '5 roles', label: 'Compras, Tráfico, Chofer, Ventas, Director' },
         ],
-        image: '/images/cases/scram-logistics.jpg',
+        image: '/images/cases/scram-logistics.webp',
         testimonial: 'Los clientes ven su pedido en tiempo real. Las entregas fallidas bajaron drásticamente.',
       },
     ],
