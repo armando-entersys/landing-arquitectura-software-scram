@@ -18,6 +18,25 @@ export const en: SiteContent = {
     ],
   },
 
+  heroForm: {
+    title: 'Book your free session',
+    subtitle: 'Technical blueprint + fixed quote in 48h',
+    companyLabel: 'Company',
+    nameLabel: 'Full name',
+    emailLabel: 'Work email',
+    needLabel: 'What do you need?',
+    needOptions: [
+      { value: 'erp', label: 'ERP / Management System' },
+      { value: 'app', label: 'Mobile App' },
+      { value: 'integration', label: 'Systems Integration' },
+      { value: 'automation', label: 'Process Automation' },
+      { value: 'other', label: 'Other' },
+    ],
+    submitText: 'Request assessment →',
+    privacyNote: 'No commitment • Your data is safe',
+    successMessage: 'Done! We\'ll contact you within 24h.',
+  },
+
   problem: {
     title: 'Why do software projects fail?',
     subtitle: '70% of projects blow their budget. 75% of ERP rollouts miss the mark. It\'s not bad luck — it\'s a systemic problem.',

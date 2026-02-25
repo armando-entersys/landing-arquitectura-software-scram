@@ -18,6 +18,25 @@ export const is: SiteContent = {
     ],
   },
 
+  heroForm: {
+    title: 'Bókaðu ókeypis fund',
+    subtitle: 'Tæknileg hönnunarskrá + fast verð innan 48 klst.',
+    companyLabel: 'Fyrirtæki',
+    nameLabel: 'Fullt nafn',
+    emailLabel: 'Vinnunetfang',
+    needLabel: 'Hvað þarftu?',
+    needOptions: [
+      { value: 'erp', label: 'ERP / Stjórnunarkerfi' },
+      { value: 'app', label: 'Farsímaforrit' },
+      { value: 'integration', label: 'Kerfissamþætting' },
+      { value: 'automation', label: 'Sjálfvirkni ferla' },
+      { value: 'other', label: 'Annað' },
+    ],
+    submitText: 'Biðja um mat →',
+    privacyNote: 'Engin skuldbinding • Gögnin þín eru örugg',
+    successMessage: 'Tilbúið! Við höfum samband innan 24 klst.',
+  },
+
   problem: {
     title: 'Hvers vegna mistakast hugbúnaðarverkefni?',
     subtitle: '70% verkefna fara fram úr fjárhagsáætlun. 75% ERP-innleiðinga ná ekki markmiðum. Þetta er ekki óheppni — þetta er kerfisbundið vandamál.',

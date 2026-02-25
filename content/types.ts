@@ -133,6 +133,19 @@ export interface SiteContent {
     helperText: string;
   };
 
+  heroForm: {
+    title: string;
+    subtitle: string;
+    companyLabel: string;
+    nameLabel: string;
+    emailLabel: string;
+    needLabel: string;
+    needOptions: { value: string; label: string }[];
+    submitText: string;
+    privacyNote: string;
+    successMessage: string;
+  };
+
   /** UI strings not in the marketing copy */
   ui: {
     screenshotPlaceholder: string;

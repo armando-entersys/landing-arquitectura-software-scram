@@ -18,6 +18,25 @@ export const es: SiteContent = {
     ],
   },
 
+  heroForm: {
+    title: 'Agenda tu sesión gratuita',
+    subtitle: 'Blueprint técnico + presupuesto cerrado en 48h',
+    companyLabel: 'Empresa',
+    nameLabel: 'Nombre completo',
+    emailLabel: 'Email corporativo',
+    needLabel: '¿Qué necesitas?',
+    needOptions: [
+      { value: 'erp', label: 'Sistema ERP / Gestión' },
+      { value: 'app', label: 'App móvil' },
+      { value: 'integracion', label: 'Integración de sistemas' },
+      { value: 'automatizacion', label: 'Automatización de procesos' },
+      { value: 'otro', label: 'Otro' },
+    ],
+    submitText: 'Solicitar diagnóstico →',
+    privacyNote: 'Sin compromiso • Tus datos están seguros',
+    successMessage: '¡Listo! Te contactamos en menos de 24h.',
+  },
+
   problem: {
     title: '¿Por qué fracasan los proyectos de software?',
     subtitle: '70% de los proyectos exceden su presupuesto. 75% de implementaciones ERP fallan. No es mala suerte — es un fallo sistémico.',

@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useContent } from '@/lib/i18n/ContentContext';
 import { HeroVisual } from '@/components/sections/HeroVisual';
+import { HeroLeadForm } from '@/components/sections/HeroLeadForm';
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
 import { Icon } from '@/components/ui/Icon';
 import { ClientLogos } from '@/components/sections/ClientLogos';
@@ -42,16 +43,17 @@ function HomePage() {
               />
             </div>
           </div>
-          <div className="max-w-3xl">
-            {/* Hero Content */}
-            <div>
+          {/* Split Hero Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            {/* Left Column — Copy */}
+            <div className="lg:col-span-7">
               <div className="mb-4 md:mb-6">
                 <span className="px-3 py-1.5 md:px-4 md:py-2 bg-scram-primary/10 text-scram-primary rounded-pill text-sm md:text-base font-semibold border border-scram-primary/20">
                   {content.hero.eyebrow}
                 </span>
               </div>
 
-              <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold italic text-scram-dark mb-4 md:mb-6 leading-tight tracking-tight">
+              <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold italic text-scram-dark mb-4 md:mb-6 leading-tight tracking-tight">
                 {content.hero.title}
                 <br />
                 <span className="text-scram-primary">{content.hero.titleHighlight}</span>
@@ -59,7 +61,7 @@ function HomePage() {
                 {content.hero.titleContinued}
               </h1>
 
-              <p className="font-body text-lg md:text-2xl text-scram-paragraph mb-6 md:mb-8 leading-relaxed">
+              <p className="font-body text-lg md:text-xl lg:text-2xl text-scram-paragraph mb-6 md:mb-8 leading-relaxed">
                 {content.hero.subtitle}
               </p>
 
@@ -89,7 +91,7 @@ function HomePage() {
                 {content.hero.helperText}
               </p>
 
-              {/* Mini stats - horizontal on mobile */}
+              {/* Mini stats */}
               <div className="flex gap-4 md:gap-6">
                 {content.hero.stats.map((stat, idx) => (
                   <div key={idx} className="flex items-center gap-2 md:gap-3">
@@ -102,10 +104,14 @@ function HomePage() {
               </div>
             </div>
 
+            {/* Right Column — Lead Form */}
+            <div className="lg:col-span-5">
+              <HeroLeadForm />
+            </div>
           </div>
 
-          {/* Video - full width below hero content */}
-          <div className="mt-8 md:mt-12">
+          {/* Video - full width below hero grid */}
+          <div className="mt-10 md:mt-14">
             <HeroVisual />
           </div>
         </div>
