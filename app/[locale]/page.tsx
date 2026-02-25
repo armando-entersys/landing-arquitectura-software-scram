@@ -102,10 +102,15 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Right: Visual - Hidden on mobile */}
-            <div className="hidden md:block h-[500px] md:h-[600px]">
+            {/* Right: Video - visible on desktop */}
+            <div className="hidden md:flex items-center">
               <HeroVisual />
             </div>
+          </div>
+
+          {/* Mobile: Video below hero content */}
+          <div className="mt-8 md:hidden">
+            <HeroVisual />
           </div>
         </div>
       </section>
