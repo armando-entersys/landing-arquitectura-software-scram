@@ -48,6 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
 
   return (
     <html lang="es-MX" className={`${asap.variable} ${cabin.variable}`} suppressHydrationWarning>
@@ -57,6 +58,23 @@ export default function RootLayout({
         <meta name="theme-color" content="#FF6B00" />
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
+        {/* Google Analytics 4 */}
+        {ga4Id && (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`} />
+            <script
+              id="ga4-script"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${ga4Id}');
+                `,
+              }}
+            />
+          </>
+        )}
       </head>
       <body className="font-body antialiased">
         {gtmId && (

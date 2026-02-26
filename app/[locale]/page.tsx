@@ -282,35 +282,34 @@ function HomePage() {
             {content.testimonials.items.map((testimonial, idx) => (
               <div
                 key={idx}
-                className="w-full bg-white rounded-card shadow-card-hover hover:shadow-card transition-shadow duration-300 overflow-hidden"
+                className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-card p-6 md:p-8 flex flex-col"
               >
-                {/* Project image */}
-                <div className="relative aspect-[16/10] bg-scram-light">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.author}
-                    fill
-                    unoptimized
-                    className="object-contain"
-                  />
+                {/* Quote */}
+                <div className="flex-1 mb-6">
+                  <svg className="w-8 h-8 text-scram-primary mb-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+                  </svg>
+                  <p className="font-body text-sm md:text-base text-white/90 leading-relaxed italic">
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </p>
                 </div>
 
-                <div className="p-5 md:p-6">
-                  {/* Quote */}
-                  <div className="mb-4">
-                    <svg className="w-7 h-7 text-scram-primary/30 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
-                    </svg>
-                    <p className="font-body text-sm md:text-base text-scram-dark leading-relaxed italic">
-                      &ldquo;{testimonial.quote}&rdquo;
-                    </p>
+                {/* Person info */}
+                <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                  <div className="relative w-14 h-14 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-scram-primary/40">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.author}
+                      fill
+                      unoptimized
+                      className="object-cover"
+                      sizes="56px"
+                    />
                   </div>
-
-                  {/* Project info */}
-                  <div className="pt-4 border-t border-scram-border">
-                    <p className="font-heading font-bold text-sm md:text-base text-scram-dark">{testimonial.author}</p>
+                  <div>
+                    <p className="font-heading font-bold text-sm md:text-base text-white">{testimonial.author}</p>
                     <p className="font-body text-xs md:text-sm text-scram-primary font-semibold">{testimonial.role}</p>
-                    <p className="font-body text-[10px] md:text-xs text-scram-paragraph">{testimonial.company}</p>
+                    <p className="font-body text-[10px] md:text-xs text-white/50">{testimonial.company}</p>
                   </div>
                 </div>
               </div>

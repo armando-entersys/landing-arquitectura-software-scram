@@ -187,7 +187,7 @@ async function sendLeadToMautic(lead: LeadData) {
   if (!config.mauticBaseUrl) return;
 
   try {
-    // Mautic form submission via tracking pixel
+    // Client-side: Mautic tracking pixel — identifies the contact for future page tracking
     if (window.mt) {
       window.mt('send', 'pageview', {
         email: lead.email,
@@ -198,6 +198,7 @@ async function sendLeadToMautic(lead: LeadData) {
         tags: [lead.industry, lead.intent, lead.source].filter(Boolean).join(','),
       });
     }
+    // Note: Server-side CRM creation happens via /api/leads endpoint
   } catch (error) {
     console.error('[Mautic] Error sending lead:', error);
   }
