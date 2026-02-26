@@ -2,19 +2,21 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useContent } from '@/lib/i18n/ContentContext';
 
 const YOUTUBE_ID = 'hJYAU8j-tqI';
 const THUMBNAIL_URL = `https://img.youtube.com/vi/${YOUTUBE_ID}/maxresdefault.jpg`;
 
 export const HeroVisual = () => {
   const [playing, setPlaying] = useState(false);
+  const { locale } = useContent();
 
   return (
     <div className="w-full rounded-card overflow-hidden shadow-card-hover bg-scram-dark">
       {playing ? (
         <iframe
           className="w-full aspect-video"
-          src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=es`}
+          src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=${locale}&hl=${locale}`}
           title="SCRAM Promocional"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

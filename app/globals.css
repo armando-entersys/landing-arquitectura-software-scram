@@ -46,6 +46,11 @@
     animation: phoneFade 15s infinite;
   }
 
+  /* First slide starts visible so there's no black flash */
+  .phone-slide:first-child {
+    opacity: 1;
+  }
+
   .phone-dot {
     animation: phoneDot 15s infinite;
   }
