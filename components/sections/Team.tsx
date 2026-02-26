@@ -7,35 +7,10 @@ import { tracker } from '@/lib/tracking/universal-tracker';
 export function Team() {
   const { content } = useContent();
 
+  const CALENDAR_URL = 'https://calendar.app.google/VaFyc3xT6Hrj8BcS8';
+
   function openGoogleCalendar() {
-    const now = new Date();
-    const next = new Date(now);
-    next.setDate(next.getDate() + 1);
-    while (next.getDay() === 0 || next.getDay() === 6) {
-      next.setDate(next.getDate() + 1);
-    }
-
-    const startDate = new Date(next);
-    startDate.setHours(10, 0, 0, 0);
-    const endDate = new Date(next);
-    endDate.setHours(10, 30, 0, 0);
-
-    const formatDate = (d: Date) =>
-      d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-
-    const params = new URLSearchParams({
-      action: 'TEMPLATE',
-      text: content.ui.calendarTitle,
-      details: content.ui.calendarDetails,
-      location: content.ui.calendarLocation,
-      dates: `${formatDate(startDate)}/${formatDate(endDate)}`,
-      add: 'contacto@scram2k.com',
-    });
-
-    window.open(
-      `https://calendar.google.com/calendar/render?${params.toString()}`,
-      '_blank'
-    );
+    window.open(CALENDAR_URL, '_blank');
   }
 
   return (

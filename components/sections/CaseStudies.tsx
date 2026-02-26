@@ -17,7 +17,7 @@ export function CaseStudies() {
   const { content } = useContent();
 
   return (
-    <section className="py-12 md:py-32 bg-gradient-to-br from-scram-light via-white to-scram-lightAlt">
+    <section id="resultados" className="py-12 md:py-32 bg-gradient-to-br from-scram-light via-white to-scram-lightAlt">
       <div className="max-w-7xl mx-auto px-5 md:px-12">
         <div className="text-center mb-8 md:mb-16">
           <h2 className="font-heading text-3xl md:text-5xl font-bold italic text-scram-dark mb-3 md:mb-6">

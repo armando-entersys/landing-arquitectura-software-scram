@@ -9,7 +9,7 @@ export function Comparison() {
   const { content } = useContent();
 
   return (
-    <section className="py-12 md:py-32 bg-scram-dark relative overflow-hidden">
+    <section id="comparativa" className="py-12 md:py-32 bg-scram-dark relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-scram-primary rounded-full blur-3xl" />

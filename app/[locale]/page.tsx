@@ -23,7 +23,7 @@ function HomePage() {
     <>
     <main className="min-h-screen">
       {/* Hero Section - Premium Design */}
-      <section className="relative bg-gradient-to-br from-white via-scram-light to-scram-lightAlt overflow-hidden">
+      <section id="hero" className="relative bg-gradient-to-br from-white via-scram-light to-scram-lightAlt overflow-hidden">
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-br from-scram-primary/20 to-transparent rounded-full blur-3xl" />

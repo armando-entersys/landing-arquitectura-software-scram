@@ -40,7 +40,7 @@ export function ClientLogos() {
   const { content } = useContent();
 
   return (
-    <section className="py-10 md:py-16 bg-scram-dark">
+    <section id="clientes" className="py-10 md:py-16 bg-scram-dark">
       <div className="max-w-7xl mx-auto px-5 md:px-12">
         <div className="text-center mb-6 md:mb-12">
           <h2 className="font-heading text-2xl md:text-4xl font-bold italic text-white mb-2 md:mb-4">
