@@ -14,7 +14,7 @@ export const HeroVisual = () => {
       {playing ? (
         <iframe
           className="w-full aspect-video"
-          src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0`}
+          src={`https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0&cc_load_policy=1&cc_lang_pref=es`}
           title="SCRAM Promocional"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
