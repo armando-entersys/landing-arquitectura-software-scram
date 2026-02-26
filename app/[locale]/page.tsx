@@ -30,7 +30,7 @@ function HomePage() {
           <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-scram-secondary/20 to-transparent rounded-full blur-3xl" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-12 py-16 md:py-32 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-12 pt-8 pb-16 md:pt-16 md:pb-32 w-full">
           {/* Logo Header */}
           <div className="mb-8 md:mb-12">
             <div className="relative w-[120px] sm:w-[160px] md:w-[180px] h-[35px] sm:h-[45px] md:h-[50px]">
@@ -282,32 +282,34 @@ function HomePage() {
             {content.testimonials.items.map((testimonial, idx) => (
               <div
                 key={idx}
-                className="w-full bg-white p-5 md:p-8 rounded-card shadow-card-hover hover:shadow-card transition-shadow duration-300"
+                className="w-full bg-white rounded-card shadow-card-hover hover:shadow-card transition-shadow duration-300 overflow-hidden"
               >
-                {/* Quote */}
-                <div className="mb-4 md:mb-6">
-                  <svg className="w-8 h-8 md:w-10 md:h-10 text-scram-primary/30 mb-2 md:mb-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
-                  </svg>
-                  <p className="font-body text-sm md:text-base text-scram-dark leading-relaxed italic">
-                    &ldquo;{testimonial.quote}&rdquo;
-                  </p>
+                {/* Project image */}
+                <div className="relative aspect-[16/10] bg-scram-light">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.author}
+                    fill
+                    unoptimized
+                    className="object-contain"
+                  />
                 </div>
 
-                {/* Author */}
-                <div className="flex items-center gap-3 md:gap-4 pt-4 md:pt-6 border-t border-scram-border">
-                  {/* Photo */}
-                  <div className="relative w-10 h-10 md:w-14 md:h-14 rounded-full overflow-hidden flex-shrink-0">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.author}
-                      fill
-                      className="object-cover"
-                    />
+                <div className="p-5 md:p-6">
+                  {/* Quote */}
+                  <div className="mb-4">
+                    <svg className="w-7 h-7 text-scram-primary/30 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+                    </svg>
+                    <p className="font-body text-sm md:text-base text-scram-dark leading-relaxed italic">
+                      &ldquo;{testimonial.quote}&rdquo;
+                    </p>
                   </div>
-                  <div>
-                    <p className="font-body font-bold text-sm md:text-base text-scram-dark">{testimonial.author}</p>
-                    <p className="font-body text-xs md:text-sm text-scram-paragraph">{testimonial.role}</p>
+
+                  {/* Project info */}
+                  <div className="pt-4 border-t border-scram-border">
+                    <p className="font-heading font-bold text-sm md:text-base text-scram-dark">{testimonial.author}</p>
+                    <p className="font-body text-xs md:text-sm text-scram-primary font-semibold">{testimonial.role}</p>
                     <p className="font-body text-[10px] md:text-xs text-scram-paragraph">{testimonial.company}</p>
                   </div>
                 </div>
