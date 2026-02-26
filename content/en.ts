@@ -259,7 +259,7 @@ export const en: SiteContent = {
         quote: 'From order to stamped invoice in minutes, not days. The pipeline runs on its own and every step is audited.',
         author: 'Ricardo Mendoza',
         role: 'Director of Operations',
-        company: 'Baja Aqua Farms — Aquaculture / Export',
+        company: 'Aquaculture / Export Company',
         image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face&q=80',
       },
       {

@@ -259,7 +259,7 @@ export const is: SiteContent = {
         quote: 'Frá pöntun til stimpluðs reiknings á mínútum, ekki dögum. Ferlið keyrir sjálft og hvert skref er endurskoðað.',
         author: 'Ricardo Mendoza',
         role: 'Rekstrarstjóri',
-        company: 'Baja Aqua Farms — Fiskeldi / Útflutningur',
+        company: 'Fiskeldi / Útflutningur',
         image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face&q=80',
       },
       {

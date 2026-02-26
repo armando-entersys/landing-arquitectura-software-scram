@@ -259,7 +259,7 @@ export const es: SiteContent = {
         quote: 'De orden a factura timbrada en minutos, no en días. El pipeline corre solo y cada paso queda auditado.',
         author: 'Ricardo Mendoza',
         role: 'Director de Operaciones',
-        company: 'Baja Aqua Farms — Acuacultura / Exportación',
+        company: 'Empresa de Acuacultura / Exportación',
         image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face&q=80',
       },
       {
