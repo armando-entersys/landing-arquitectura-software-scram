@@ -48,6 +48,7 @@ export function CaseStudies() {
                     src={caseStudy.image}
                     alt={caseStudy.title}
                     fill
+                    unoptimized
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL={blurDataUrls[caseStudy.image]}
@@ -112,6 +113,7 @@ export function CaseStudies() {
                       src={caseStudy.image}
                       alt={caseStudy.title}
                       fill
+                      unoptimized
                       loading="lazy"
                       placeholder="blur"
                       blurDataURL={blurDataUrls[caseStudy.image]}

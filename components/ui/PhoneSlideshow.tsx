@@ -32,6 +32,7 @@ export function PhoneSlideshow() {
                   src={img.src}
                   alt={img.alt}
                   fill
+                  unoptimized
                   className="object-cover object-top"
                   sizes="280px"
                 />
