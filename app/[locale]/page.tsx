@@ -110,9 +110,19 @@ function HomePage() {
             </div>
           </div>
 
-          {/* Video - full width below hero grid */}
-          <div className="mt-10 md:mt-14">
-            <HeroVisual />
+          {/* Video — prominent showcase below hero */}
+          <div className="mt-12 md:mt-20">
+            <div className="text-center mb-4 md:mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-scram-dark/5 rounded-pill text-sm font-medium text-scram-dark">
+                <svg className="w-4 h-4 text-scram-primary" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                Conoce nuestra metodología en 2 minutos
+              </span>
+            </div>
+            <div className="max-w-5xl mx-auto">
+              <HeroVisual />
+            </div>
           </div>
         </div>
       </section>

@@ -6,6 +6,13 @@ import { PhoneSlideshow } from '@/components/ui/PhoneSlideshow';
 
 const isTecCase = (image: string) => image.includes('/cases/tec/');
 
+const blurDataUrls: Record<string, string> = {
+  '/images/cases/aquafarms-erp.webp':
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA5ElEQVR4nAHZACb/AGhwe2lxfEZKT0lMUklPVEpQV0lPVkZLU1hfaoiSngBlbHdianVzhYijv8ifv8mewcyew82ZvLlfZnN9iJkAZWp2X2Rwoayk6Pbm6ffn6ffn6ffnyNXMW2NufYibAGJqdVxhbaeys+r38Pz7/Pz7/OXn69zR0FJaY3R/kACxr7uWl59ISktSUVRQUFJPT1FOUFFMTlBxcXqnqbYA4d7kh4eHW1tbWFhYWFhYVVVVTk5OQkJCampq0s7WAO7r7tLR1NLR1NDQ0tDQ0s/P0czLzsjIysXEx9rX3V7ueXJAGQ8WAAAAAElFTkSuQmCC',
+  '/images/cases/scram-logistics.webp':
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHCAIAAAC+zks0AAAACXBIWXMAAAPoAAAD6AG1e1JrAAAA5ElEQVR4nAHZACb/ALOkkqucimRbTHd4cXR2bnJ1bXJtZYaFgb29vdbY2QCtpZNyal+PlpiJlp2DkJeCkJl1iop3iYyfpqjV19YApJmLa2Zcvbm2x8zLytHRzdLStcevvsS5kZiatriqALqrm5yThru3tMLKx87V1c3U1MDItay1p4CGgqytlgCvn46gmYyQjoyWl5SZmZeXmZmLiICAinmIg3e9uqIA3dbIxMG5jYyIhoWBhIJ+goB8iYeDkI6Kvr253drQANfQwK+qnrGsorCroa+qoLGsoq6on6+qoK+qnrq2ql/lg8Oi8KMPAAAAAElFTkSuQmCC',
+};
+
 export function CaseStudies() {
   const { content } = useContent();
 
@@ -41,6 +48,9 @@ export function CaseStudies() {
                     src={caseStudy.image}
                     alt={caseStudy.title}
                     fill
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL={blurDataUrls[caseStudy.image]}
                     className="object-contain"
                     sizes="100vw"
                   />
@@ -102,8 +112,11 @@ export function CaseStudies() {
                       src={caseStudy.image}
                       alt={caseStudy.title}
                       fill
+                      loading="lazy"
+                      placeholder="blur"
+                      blurDataURL={blurDataUrls[caseStudy.image]}
                       className="object-contain"
-                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 100vw, 600px"
                     />
                   </div>
                 )}
