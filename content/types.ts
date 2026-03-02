@@ -146,6 +146,41 @@ export interface SiteContent {
     successMessage: string;
   };
 
+  booking: {
+    modalTitle: string;
+    stepCalendar: string;
+    stepTime: string;
+    stepForm: string;
+    stepConfirmation: string;
+    selectDate: string;
+    selectTime: string;
+    closed: string;
+    noSlots: string;
+    loading: string;
+    nameLabel: string;
+    emailLabel: string;
+    phoneLabel: string;
+    notesLabel: string;
+    phonePlaceholder: string;
+    notesPlaceholder: string;
+    submitText: string;
+    submitting: string;
+    confirmationTitle: string;
+    confirmationSubtitle: string;
+    meetLinkLabel: string;
+    joinMeet: string;
+    closeButton: string;
+    errorSlotTaken: string;
+    errorGeneric: string;
+    privacyNote: string;
+    days: string[];
+    daysShort: string[];
+    months: string[];
+    today: string;
+    tomorrow: string;
+    duration: string;
+  };
+
   /** UI strings not in the marketing copy */
   ui: {
     screenshotPlaceholder: string;

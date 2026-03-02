@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { tracker } from '@/lib/tracking/universal-tracker';
+import { initAttribution } from '@/lib/tracking/mkt-attribution';
 
 /**
  * TrackingProvider
@@ -21,10 +22,14 @@ import { tracker } from '@/lib/tracking/universal-tracker';
  * - NEXT_PUBLIC_GADS_WHATSAPP_LABEL → Label para conversión de WhatsApp en Google Ads
  * - NEXT_PUBLIC_LINKEDIN_FORM_CONVERSION → ID conversión LinkedIn para forms
  * - NEXT_PUBLIC_LINKEDIN_WHATSAPP_CONVERSION → ID conversión LinkedIn para WhatsApp
+ *
+ * Marketing attribution:
+ * - First-touch / last-touch UTM persistence via cookies + localStorage
  */
 export function TrackingProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     tracker.init();
+    initAttribution();
   }, []);
 
   return <>{children}</>;

@@ -1,17 +1,14 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { useContent } from '@/lib/i18n/ContentContext';
 import { tracker } from '@/lib/tracking/universal-tracker';
+import { BookingScheduler } from './BookingScheduler';
 
 export function Team() {
   const { content } = useContent();
-
-  const CALENDAR_URL = 'https://calendar.app.google/VaFyc3xT6Hrj8BcS8';
-
-  function openGoogleCalendar() {
-    window.open(CALENDAR_URL, '_blank');
-  }
+  const [showScheduler, setShowScheduler] = useState(false);
 
   return (
     <section id="equipo" className="py-12 md:py-32 bg-white">
@@ -78,8 +75,8 @@ export function Team() {
               <div className="flex flex-col sm:flex-row gap-2 md:gap-3 justify-center md:justify-start">
                 <button
                   onClick={() => {
-                    tracker.trackCTA(content.ui.scheduleCall, 'team', 'google-calendar');
-                    openGoogleCalendar();
+                    tracker.trackCTA(content.ui.scheduleCall, 'team', 'booking-scheduler');
+                    setShowScheduler(true);
                   }}
                   className="px-5 py-2.5 md:px-6 md:py-3 bg-scram-primary hover:bg-scram-primaryHover text-white font-semibold text-sm md:text-base rounded-pill transition-all duration-300 hover:-translate-y-0.5 shadow-button flex items-center justify-center gap-2"
                 >
@@ -106,6 +103,10 @@ export function Team() {
           </div>
         </div>
       </div>
+
+      {showScheduler && (
+        <BookingScheduler onClose={() => setShowScheduler(false)} />
+      )}
     </section>
   );
 }
