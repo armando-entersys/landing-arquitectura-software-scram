@@ -166,15 +166,25 @@ function trackGoogleAdsConversion(
 
 export function initMautic(baseUrl: string) {
   if (typeof window === 'undefined' || !baseUrl) return;
-  const script = document.createElement('script');
-  script.innerHTML = `
-    (function(w,d,t,u,n,a,m){w['MauticTrackingObject']=n;
-    w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),
-    m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','${baseUrl}/mtc.js','mt');
-    mt('send', 'pageview');
-  `;
-  document.head.appendChild(script);
+
+  // Verify the Mautic instance is reachable before injecting the tracking script.
+  // This prevents Mixed Content errors when Mautic redirects to an HTTP installer page.
+  fetch(`${baseUrl}/mtc.js`, { method: 'HEAD', mode: 'no-cors' })
+    .then(() => {
+      const script = document.createElement('script');
+      script.innerHTML = `
+        (function(w,d,t,u,n,a,m){w['MauticTrackingObject']=n;
+        w[n]=w[n]||function(){(w[n].q=w[n].q||[]).push(arguments)},a=d.createElement(t),
+        m=d.getElementsByTagName(t)[0];a.async=1;a.src=u;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','${baseUrl}/mtc.js','mt');
+        mt('send', 'pageview');
+      `;
+      document.head.appendChild(script);
+    })
+    .catch(() => {
+      // Mautic unreachable — skip client-side tracking silently.
+      // Server-side CRM sync via OAuth2 (/api/leads, /api/bookings) still works.
+    });
 }
 
 function trackMauticEvent(eventName: string, data?: Record<string, string>) {

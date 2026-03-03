@@ -35,6 +35,9 @@ COPY --from=builder /app/public ./public
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
+# Analytics data directory (writable by nextjs user)
+RUN mkdir -p .analytics && chown nextjs:nodejs .analytics
+
 # Copiar archivos standalone
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
