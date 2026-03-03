@@ -302,7 +302,6 @@ export async function createBooking(params: BookingParams): Promise<BookingResul
 
     const event = await calendar.events.insert({
       calendarId,
-      conferenceDataVersion: 1,
       requestBody: {
         summary: `Arquitectura SW - ${params.name}`,
         description,
@@ -313,12 +312,6 @@ export async function createBooking(params: BookingParams): Promise<BookingResul
         end: {
           dateTime: endDateTime,
           timeZone: params.timezone,
-        },
-        conferenceData: {
-          createRequest: {
-            requestId: crypto.randomUUID(),
-            conferenceSolutionKey: { type: 'hangoutsMeet' },
-          },
         },
         reminders: {
           useDefault: false,
@@ -333,7 +326,7 @@ export async function createBooking(params: BookingParams): Promise<BookingResul
     return {
       success: true,
       eventId: event.data.id || undefined,
-      meetLink: event.data.hangoutLink || event.data.conferenceData?.entryPoints?.[0]?.uri || undefined,
+      meetLink: undefined,
     };
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
