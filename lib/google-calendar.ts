@@ -314,7 +314,6 @@ export async function createBooking(params: BookingParams): Promise<BookingResul
           dateTime: endDateTime,
           timeZone: params.timezone,
         },
-        attendees: [{ email: params.email }],
         conferenceData: {
           createRequest: {
             requestId: crypto.randomUUID(),
