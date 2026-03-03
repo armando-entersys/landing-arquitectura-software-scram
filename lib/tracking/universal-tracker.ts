@@ -361,7 +361,7 @@ export class UniversalTracker {
       trackGoogleAdsConversion(
         this.config.googleAdsId,
         process.env.NEXT_PUBLIC_GADS_WHATSAPP_LABEL || '',
-        100
+        1
       );
     }
 
@@ -404,7 +404,7 @@ export class UniversalTracker {
       trackGoogleAdsConversion(
         this.config.googleAdsId,
         process.env.NEXT_PUBLIC_GADS_FORM_LABEL || '',
-        500
+        1
       );
     }
 

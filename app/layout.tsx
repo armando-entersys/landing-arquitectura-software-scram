@@ -49,6 +49,7 @@ export default function RootLayout({
 }) {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
+  const gadsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 
   return (
     <html lang="es-MX" className={`${asap.variable} ${cabin.variable}`} suppressHydrationWarning>
@@ -70,6 +71,7 @@ export default function RootLayout({
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
                   gtag('config', '${ga4Id}');
+                  ${gadsId ? `gtag('config', '${gadsId}');` : ''}
                 `,
               }}
             />
