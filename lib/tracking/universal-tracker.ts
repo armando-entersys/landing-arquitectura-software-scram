@@ -144,6 +144,18 @@ function trackLinkedInConversion(conversionId?: string) {
 }
 
 // ============================================================
+// GA4 EVENT TRACKING
+// ============================================================
+
+function trackGA4Event(
+  eventName: string,
+  params?: Record<string, string | number | boolean>
+) {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  window.gtag('event', eventName, params);
+}
+
+// ============================================================
 // GOOGLE ADS CONVERSION
 // ============================================================
 
@@ -152,7 +164,7 @@ function trackGoogleAdsConversion(
   conversionLabel: string,
   value?: number
 ) {
-  if (typeof window === 'undefined' || !window.gtag) return;
+  if (typeof window === 'undefined' || !window.gtag || !conversionLabel) return;
   window.gtag('event', 'conversion', {
     send_to: `${conversionId}/${conversionLabel}`,
     value: value || 0,
@@ -356,7 +368,14 @@ export class UniversalTracker {
       label: location,
     });
 
-    // Google Ads conversion específica para WhatsApp
+    // GA4 - evento directo para importar como conversión en Google Ads
+    trackGA4Event('whatsapp_click', {
+      event_category: 'lead',
+      event_label: location,
+      value: 1,
+    });
+
+    // Google Ads conversion específica para WhatsApp (requiere label configurado)
     if (this.config.googleAdsId) {
       trackGoogleAdsConversion(
         this.config.googleAdsId,
@@ -393,13 +412,21 @@ export class UniversalTracker {
       },
     });
 
-    // 2. Meta Pixel - Lead event
+    // 2. GA4 - evento directo para importar como conversión en Google Ads
+    trackGA4Event('form_submit', {
+      event_category: 'conversion',
+      form_name: formName,
+      lead_source: lead.source || 'direct',
+      value: 1,
+    });
+
+    // 3. Meta Pixel - Lead event
     trackMetaEvent('Lead', {
       content_name: formName,
       content_category: lead.industry || 'general',
     });
 
-    // 3. Google Ads conversion
+    // 4. Google Ads conversion (requiere label configurado)
     if (this.config.googleAdsId) {
       trackGoogleAdsConversion(
         this.config.googleAdsId,
@@ -408,10 +435,10 @@ export class UniversalTracker {
       );
     }
 
-    // 4. LinkedIn conversion
+    // 5. LinkedIn conversion
     trackLinkedInConversion(process.env.NEXT_PUBLIC_LINKEDIN_FORM_CONVERSION);
 
-    // 5. Clarity - identificar usuario y tagear sesión
+    // 6. Clarity - identificar usuario y tagear sesión
     if (lead.email) {
       identifyClarity(lead.email, {
         company: lead.company || '',
@@ -421,7 +448,7 @@ export class UniversalTracker {
     tagClarity('form_submitted', formName);
     tagClarity('lead_quality', lead.budget === 'enterprise' ? 'high' : 'standard');
 
-    // 6. Mautic CRM - enviar lead completo
+    // 7. Mautic CRM - enviar lead completo
     await sendLeadToMautic(lead);
   }
 
