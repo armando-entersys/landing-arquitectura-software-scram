@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useContent } from '@/lib/i18n/ContentContext';
+import { tracker } from '@/lib/tracking/universal-tracker';
 
 export default function FloatingWhatsApp() {
   const { content } = useContent();
@@ -25,6 +26,7 @@ export default function FloatingWhatsApp() {
   }, []);
 
   const handleWhatsAppClick = () => {
+    tracker.trackWhatsAppClick('floating_button');
     const message = encodeURIComponent(content.ui.whatsAppFloatingMsg);
     window.open(`https://wa.me/522211065056?text=${message}`, '_blank');
     setShowBadge(false);

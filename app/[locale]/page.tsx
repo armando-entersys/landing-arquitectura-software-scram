@@ -68,7 +68,8 @@ function HomePage() {
               <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8">
                 <button
                   onClick={() => {
-                    tracker.trackCTA(getCTAText(content.hero.ctaPrimary), 'hero', '#contacto');
+                    tracker.trackCTA(getCTAText(content.hero.ctaPrimary), 'hero', 'whatsapp');
+                    tracker.trackWhatsAppClick('hero');
                     const msg = encodeURIComponent(content.ui.whatsAppHeroMsg);
                     window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
                   }}
@@ -385,6 +386,7 @@ function HomePage() {
             <button
               onClick={() => {
                 tracker.trackCTA(content.pricing.cta.buttonText, 'pricing', 'whatsapp');
+                tracker.trackWhatsAppClick('pricing');
                 const msg = encodeURIComponent(content.ui.whatsAppPricingMsg);
                 window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
               }}
@@ -453,6 +455,7 @@ function HomePage() {
             <button
               onClick={() => {
                 tracker.trackCTA(content.cta.button, 'final-cta', 'whatsapp');
+                tracker.trackWhatsAppClick('final_cta');
                 const msg = encodeURIComponent(content.ui.whatsAppCtaMsg);
                 window.open(`https://wa.me/522211065056?text=${msg}`, '_blank');
               }}
