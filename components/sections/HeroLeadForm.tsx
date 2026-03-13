@@ -34,8 +34,9 @@ export function HeroLeadForm() {
       gclid: params.get('gclid') || '',
     };
 
-    // 1. Enviar al CRM (server-side → Mautic)
+    // 1. Enviar al CRM nativo
     try {
+      const visitorId = localStorage.getItem('scram_visitor_id') || '';
       await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -45,12 +46,13 @@ export function HeroLeadForm() {
           email,
           need,
           needLabel,
+          visitorId,
           source: 'hero_form',
           ...utmData,
         }),
       });
     } catch {
-      // No bloquear si el CRM falla — el lead se guarda localmente
+      // No bloquear si el CRM falla — el lead se registra en WhatsApp de todas formas
     }
 
     // 2. Tracking en todas las plataformas (GTM → Google Ads, Meta, LinkedIn, etc.)
