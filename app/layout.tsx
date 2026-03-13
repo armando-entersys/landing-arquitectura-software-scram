@@ -71,7 +71,6 @@ export default function RootLayout({
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
                   gtag('config', '${ga4Id}');
-                  gtag('config', 'GT-T5N73JZ6');
                   ${gadsId ? `gtag('config', '${gadsId}');` : ''}
                 `,
               }}

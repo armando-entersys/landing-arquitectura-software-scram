@@ -5,6 +5,7 @@ import { useContent } from '@/lib/i18n/ContentContext';
 import { HeroVisual } from '@/components/sections/HeroVisual';
 import { HeroLeadForm } from '@/components/sections/HeroLeadForm';
 import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
+import ChatWidget from '@/components/ui/ChatWidget';
 import { Icon } from '@/components/ui/Icon';
 import { ClientLogos } from '@/components/sections/ClientLogos';
 import { CaseStudies } from '@/components/sections/CaseStudies';
@@ -503,6 +504,7 @@ function HomePage() {
       </footer>
     </main>
     <FloatingWhatsApp />
+    <ChatWidget />
     </>
   );
 }
