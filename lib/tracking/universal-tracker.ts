@@ -448,8 +448,7 @@ export class UniversalTracker {
     tagClarity('form_submitted', formName);
     tagClarity('lead_quality', lead.budget === 'enterprise' ? 'high' : 'standard');
 
-    // 7. Mautic CRM - enviar lead completo
-    await sendLeadToMautic(lead);
+    // 7. CRM - lead data sent via /api/leads (native CRM)
   }
 
   /**
@@ -494,20 +493,46 @@ export class UniversalTracker {
   }
 
   /**
-   * Envía evento al backend para almacenamiento y análisis con Gemini
+   * Envía evento al backend local + CRM tracking API
    */
   private sendToBackend(event: TrackingEvent) {
     if (typeof window === 'undefined') return;
     try {
+      const visitorId = localStorage.getItem('scram_visitor_id') || '';
+      const utmParams = UniversalTracker.getUTMParams();
+
       const payload = {
         ...event,
         sessionId: this.sessionId,
         page: window.location.pathname,
       };
-      // Fire and forget - no bloqueamos el tracking
+      // Local analytics
       navigator.sendBeacon('/api/analytics/events', JSON.stringify(payload));
+
+      // CRM tracking API — fire and forget
+      const crmPayload = {
+        visitorId,
+        eventType: event.event,
+        url: window.location.href,
+        siteOrigin: 'arquitectura-software.scram2k.com',
+        metadata: {
+          ...event.metadata,
+          category: event.category,
+          action: event.action,
+          label: event.label,
+          gclid: utmParams.gclid || undefined,
+          fbclid: utmParams.fbclid || undefined,
+        },
+        utmSource: utmParams.utm_source !== 'direct' ? utmParams.utm_source : undefined,
+        utmMedium: utmParams.utm_medium !== 'none' ? utmParams.utm_medium : undefined,
+        utmCampaign: utmParams.utm_campaign || undefined,
+      };
+      navigator.sendBeacon(
+        'https://api.scram2k.com/v1/crm/track',
+        new Blob([JSON.stringify(crmPayload)], { type: 'application/json' }),
+      );
     } catch {
-      // Silencioso - el tracking no debe romper la UX
+      // Silencioso
     }
   }
 
