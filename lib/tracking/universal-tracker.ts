@@ -204,27 +204,7 @@ function trackMauticEvent(eventName: string, data?: Record<string, string>) {
   window.mt('send', 'event', { name: eventName, ...data });
 }
 
-async function sendLeadToMautic(lead: LeadData) {
-  const config = getConfig();
-  if (!config.mauticBaseUrl) return;
-
-  try {
-    // Client-side: Mautic tracking pixel — identifies the contact for future page tracking
-    if (window.mt) {
-      window.mt('send', 'pageview', {
-        email: lead.email,
-        firstname: lead.name?.split(' ')[0] || '',
-        lastname: lead.name?.split(' ').slice(1).join(' ') || '',
-        phone: lead.phone,
-        company: lead.company,
-        tags: [lead.industry, lead.intent, lead.source].filter(Boolean).join(','),
-      });
-    }
-    // Note: Server-side CRM creation happens via /api/leads endpoint
-  } catch (error) {
-    console.error('[Mautic] Error sending lead:', error);
-  }
-}
+// Mautic removed — CRM sync handled by /api/leads → POST /v1/crm/forms/submit
 
 // ============================================================
 // MICROSOFT CLARITY - Session Recording & Heatmaps
