@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { useContent } from '@/lib/i18n/ContentContext';
 import { HeroVisual } from '@/components/sections/HeroVisual';
 import { HeroLeadForm } from '@/components/sections/HeroLeadForm';
-import FloatingWhatsApp from '@/components/ui/FloatingWhatsApp';
 import ChatWidget from '@/components/ui/ChatWidget';
 import { Icon } from '@/components/ui/Icon';
 import { ClientLogos } from '@/components/sections/ClientLogos';
@@ -503,7 +502,6 @@ function HomePage() {
         </div>
       </footer>
     </main>
-    <FloatingWhatsApp />
     <ChatWidget />
     </>
   );
